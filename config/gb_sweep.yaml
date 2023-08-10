@@ -1,0 +1,55 @@
+command:
+  - python3
+  - hyper_search_genom.py
+method: bayes
+metric:
+  goal: maximize
+  name: val_acc
+parameters:
+  batch_size:
+    values:
+      - 64
+      - 128
+      - 256
+  coeff:
+    values:
+      - 0.8
+      - 1
+      - 1.2
+  layer_dropout:
+    values:
+      - 0
+  learning_rate:
+    values:
+      - 0.0001
+      - 0.0003
+  mlp_dropout:
+    values:
+      - 0
+  n_epochs:
+    values:
+      - 40
+      - 60
+      - 100
+  n_warmup_steps:
+    values:
+      - 50000
+  norm:
+    values:
+      - None
+  prenorm:
+    values:
+      - None
+  track_size:
+    values:
+      - 4
+      - 8
+  hidden_size:
+    values:
+      - 64
+      - 128
+      - 256
+  weight_decay:
+    values:
+      - 0.1
+program: hyper_search_genom.py
