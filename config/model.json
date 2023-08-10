@@ -1,7 +1,0 @@
-{
-	"dim": 4,
-	"hdim":225,
-	"n_layers": 12,
-	"max_len": 5000,
-	"n_class": 49
-}
