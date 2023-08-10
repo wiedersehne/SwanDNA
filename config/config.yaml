@@ -12,14 +12,7 @@ Pretraining:
     weight_decay: 0.0003
     learning_rate: 0.0003
     save_every: 2500
-  Revolution:
-    dim: 5
-    hdim1: 8
-    hdim2: 16
-    kernel_size: 3
-    n_layers: 9
-    dropout: 0.0
-  Chordmixer:
+  DNASwan:
     input_size: 5
     embedding_size: 10
     max_len: 1000
@@ -29,23 +22,6 @@ Pretraining:
     layer_dropout: 0
     prenorm: None
     norm: None
-  Nystromformer:
-    seed: 3431
-    dim: 5
-    hdim1: 16
-    hdim2: 8
-    kernel_size: 3
-    n_layers: 4
-    n_heads: 4
-    max_len: 1000
-    batch_size: 64
-    mask_ratio: 0.3
-    real_mask: 0.8
-    lr: 0.0003
-    n_epochs: 50
-    train_num: 40000
-    n_cores: 28
-    device: "cuda"
 Fine_tuning:
   training:
     pretrained: True
@@ -61,15 +37,6 @@ Fine_tuning:
     swa_lrs: -1
   Deepsea:
     output_size: 49
-  Revolution:
-    dim_in: 5
-    dim_out: 8
-    clf_dim: 16
-    ks: 3
-    layers: 15
-    max_len: 1000
-    output_size: 49
-    dropout: 0.0
   Transformer:
     name: "transformer"
     dim_in: 5
@@ -95,15 +62,6 @@ Fine_tuning:
     clf_dim: 10
     layers: 2
     heads: 2
-    max_len: 1000
-    output_size: 49
-  Flash:
-    name: "flash"
-    dim_in: 5
-    dim_out: 64
-    clf_dim: 64
-    layers: 2
-    heads: 8
     max_len: 1000
     output_size: 49
   Mega:
@@ -133,7 +91,7 @@ Fine_tuning:
     heads: 2
     max_len: 20000
     output_size: 49
-  Chordmixer:
+  DNASwan:
     input_size: 5
     output_size: 49
     embedding_size: 10

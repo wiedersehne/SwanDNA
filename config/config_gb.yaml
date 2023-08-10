@@ -12,14 +12,7 @@ Pretraining:
     weight_decay: 0.1
     learning_rate: 0.0003
     save_every: 2000
-  Revolution:
-    dim: 5
-    hdim1: 8
-    hdim2: 16
-    kernel_size: 3
-    n_layers: 9
-    dropout: 0.0
-  Chordmixer:
+  DNASwan:
     input_size: 5
     embedding_size: 144
     max_len: 100000
@@ -29,23 +22,6 @@ Pretraining:
     layer_dropout: 0
     prenorm: None
     norm: None
-  Nystromformer:
-    seed: 3431
-    dim: 5
-    hdim1: 16
-    hdim2: 8
-    kernel_size: 3
-    n_layers: 4
-    n_heads: 4
-    max_len: 1000
-    batch_size: 64
-    mask_ratio: 0.3
-    real_mask: 0.8
-    lr: 0.0003
-    n_epochs: 50
-    train_num: 40000
-    n_cores: 28
-    device: "cuda"
 Human_Promoter:
   training:
     pretrained: True
@@ -59,7 +35,7 @@ Human_Promoter:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  Chordmixer:
+  DNASwan:
     input_size: 5
     output_size: 2
     embedding_size: 144
@@ -84,7 +60,7 @@ Human_Enhancers_Cohn:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  Chordmixer:
+  DNASwan:
     input_size: 5
     output_size: 2
     embedding_size: 144
@@ -109,7 +85,7 @@ Demo_Human_Or_Worm:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  Chordmixer:
+  DNASwan:
     input_size: 5
     output_size: 2
     embedding_size: 144
@@ -134,7 +110,7 @@ Demo_Mouse_Enhancers:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  Chordmixer:
+  DNASwan:
     input_size: 5
     output_size: 2
     embedding_size: 72
@@ -159,7 +135,7 @@ Demo_Coding_Inter:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  Chordmixer:
+  DNASwan:
     input_size: 5
     output_size: 2
     embedding_size: 144
@@ -184,7 +160,7 @@ Drop_Enhancer_Stark:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  Chordmixer:
+  DNASwan:
     input_size: 5
     output_size: 2
     embedding_size: 36
@@ -209,7 +185,7 @@ Human_Enhancers_Ensembl:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  Chordmixer:
+  DNASwan:
     input_size: 5
     output_size: 2
     embedding_size: 144
@@ -234,7 +210,7 @@ Human_Regulatory:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  Chordmixer:
+  DNASwan:
     input_size: 5
     output_size: 3
     embedding_size: 144
@@ -259,7 +235,7 @@ Human_Ocr_Ensembl:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  Chordmixer:
+  DNASwan:
     input_size: 5
     output_size: 2
     embedding_size: 72
