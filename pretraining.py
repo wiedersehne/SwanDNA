@@ -157,9 +157,9 @@ def pretrain_main(cfg):
     """
     # 1. Load data for pretraining
     """
-    genes_hg38 = torch.load(f"./data/pretrain/gene_hg38ac_{cfg.Pretraining.training.max_len}_50k.pt")
-    masked_genes_hg38 = torch.load(f"./data/pretrain/masked_hg38ac_{cfg.Pretraining.training.max_len}_50k.pt")
-    masks_hg38 = torch.load(f"./data/pretrain/mask_hg38ac_{cfg.Pretraining.training.max_len}_50k.pt")
+    genes_train = torch.load(f"./data/pretrain/gene_hg38ac_{cfg.Pretraining.training.max_len}_50k.pt")
+    masked_genes_train = torch.load(f"./data/pretrain/masked_hg38ac_{cfg.Pretraining.training.max_len}_50k.pt")
+    masks_train = torch.load(f"./data/pretrain/mask_hg38ac_{cfg.Pretraining.training.max_len}_50k.pt")
 
     genes_val = torch.load(f"./data/pretrain/gene_val_{cfg.Pretraining.training.max_len}.pt")
     masked_genes_val = torch.load(f"./data/pretrain/masked_val_{cfg.Pretraining.training.max_len}.pt")
@@ -168,7 +168,7 @@ def pretrain_main(cfg):
     # print(genes_hg38.shape, masked_genes_hg38.shape, masks_hg38.shape)
     # print(genes_hg38[0:10], masked_genes_hg38[0:10], masks_hg38[0:10])
 
-    train_set =   DatasetCreator(genes_hg38, masked_genes_hg38, masks_hg38)
+    train_set =   DatasetCreator(genes_train, masked_genes_train, masks_train)
     val_set =   DatasetCreator(genes_val, masked_genes_val, masks_val)
 
     """
