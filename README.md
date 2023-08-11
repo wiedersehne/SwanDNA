@@ -42,5 +42,5 @@ task_names = [
     "human_ocr_ensembl"
 ]
 ```
-Then, specify the task in ```classify_main(cfg, "human_ocr_ensembl")```
+Then, specify the task in the main function. The following exampe shows how to run human_ocr_ensembl: ```classify_main(cfg, "human_ocr_ensembl")```
 The optimal hyperparameters for each dataset are fixed in **config_gb.yaml**.
