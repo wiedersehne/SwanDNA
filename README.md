@@ -2,7 +2,7 @@
 ## Varaint Effect Prediction. 
 ### To pretrain a model you need to follow the steps:
 1. Download GRCH38 from http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz. (3.1G)
-2. Run **generate_pretrain_human.py**. Sequence length [1k, 5k, 10k, 20k] and numbers(100k) are required.
+2. Run **generate_pretrain_human.py**. Sequence length [1k, 5k, 10k, 20k] and numbers(200k) are required.
 3. Run **pretraining.py** with the generated data. Configurations of different lengths shall be changed accordingly in config.yaml.
 ### To fine-tune a pretrained model, you need to:
 1. Run **generate_ve_data.py** to save data. Sequence lengths is required. A total of 97,922 sequence will be extracted.
@@ -69,7 +69,7 @@ task_names = [
 ]
 ```
 Then, specify the task in the main function. The following example shows how to run human_ocr_ensembl: ```classify_main(cfg, "human_ocr_ensembl")```
-The optimal hyperparameters for each dataset are fixed in **config_gb.yaml**.
+The optimal hyperparameters for each dataset are fixed in **config_gb.yaml**. You can also refer to the supplementary document.
 
 ### Experimental Results
 | Dataset                  | CNN | Transformer | HyenaDNA | DNASWAN |
