@@ -16,6 +16,7 @@
 The hyperparameters of pretraining is in supplementaty document.
 ### To fine-tune a pretrained model and conduct classification of GenomicBenchmarks, you need to:
 1. run genomic_benchmark.py to download the datasets. The details of the datasets are shown in the table below.
+
 | Dataset                 | Length Range | Median | Train Num | Test Num | Classes |
 |-------------------------|--------------|--------|----------|----------|---------|
 | Mouse Enhancers         | 331-4776     | 2381   | 1210     | 242      | 2       |
@@ -26,5 +27,6 @@ The hyperparameters of pretraining is in supplementaty document.
 | Human Regulatory        | 71-802       | 401    | 231348   | 57713    | 3       |
 | Human Nontata Promoters | 251          | /      | 27097    | 9034     | 2       |
 | Human OCR Ensembl       | 71-593       | 315    | 139804   | 34952    | 2       |
+
 2. Run genomic_classification.py to load the pretrained model under the folder "Pretrained_models" and train DNASwan.
 The optimal hyperparameters for each dataset are fixed in config_gb.yaml.
