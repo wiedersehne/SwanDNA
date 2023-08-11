@@ -7,6 +7,34 @@
 ### To fine-tune a pretrained model, you need to:
 1. Run **generate_ve_data.py** to save data. Sequence lengths is required. A total of 97,922 sequence will be extracted.
 2. Run ve_classification.py to load the pretrained model under the folder "Pretrained_models" and train DNASwan.
+### Experimental Results
+
+| lengths | DNASWAN w/o | Enformer | DeepSEA | Nystromformer | Linformer | Transformer | Mega | S4 |
+| ------- | ----------- | -------- | ------- | ------------- | --------- | ----------- | ---- | -- |
+| 1kbp    | 70.74       | 64.13    | 52.93   | 70.86         | 62.5      | 52.93       | **71.48** | 69.26 |
+| 5kbp    | **71.04**   |          | /       | 70.23         | 59.68     | /           | 56.60 | 65.80 |
+| 10kbp   | **71.61**   |          | /       | 69.12         | 60.05     | /           | 51.98 | 62.13 |
+| 20kbp   | **71.90**   |          | /       | 50.00         | 50.00     | /           | 50.01 | 52.21 |
+
+## OCRs prediciton in plants
+
+### Experimental Results
+| Plant               | A.thaliana | B.distachyon | O.sativa-MH | O.sativa-ZS | S.bicolor | S.italica | Z.mays |
+| ------------------- | ---------- | ------------ | ----------- | ----------- | --------- | --------- | ------ |
+| \#OCR                | 19         | 9            | 15          | 15          | 14        | 9         | 19     |
+| ------------------- | ---------- | ------------ | ----------- | ----------- | --------- | --------- | ------ |
+| DeepSEA             | 92.02      | 92.88        | 92.95       | 92.19       | 96.24     | 94.04     | 96.64  |
+| Nystromformer       | 89.22      | 90.86        | 89.08       | 88.10       | 94.50     | 91.61     | 90.74  |
+| Linformer           | 70.56      | 83.50        | 79.28       | 80.43       | 87.30     | 84.64     | 80.82  |
+| Transformer         | 64.96      | 82.53        | 78.79       | 78.62       | 85.15     | 84.24     | 63.02  |
+| Mega                | 85.37      | 88.68        | 85.43       | 85.51       | 91.99     | 88.41     | 84.74  |
+| S4                  | 85.82      | 90.70        | 88.30       | 87.84       | 93.95     | 90.84     | 92.87  |
+| ------------------- | ---------- | ------------ | ----------- | ----------- | --------- | --------- | ------ |
+| DNASWAN w/o         | 92.09      | 93.15        | 92.85       | 92.15       | 96.32     | 93.98     | 96.64  |
+| DNASWAN w/ (1kbp)   | 92.24      | 93.57        | 93.42       | 92.81       | 96.41     | 94.33     | 97.07  |
+| DNASWAN w/ (10kbp)  | 92.45      | 93.77        | 93.70       | 93.11       | 96.74     | 94.71     | 97.21  |
+| DNASWAN w/ (50kbp)  | 92.81      | 93.79        | 93.83       | 93.28       | 96.68     | 94.79     | 97.31  |
+| DNASWAN w/ (100kbp) | **93.22**  | **94.10**    | **93.99**   | **93.56**   | **96.88** | **95.08** | **97.32** |
 
 ## Public Benchmark: GenomicBechmarks.
 ### To pretrain a model you need to follow the steps:
@@ -42,5 +70,18 @@ task_names = [
     "human_ocr_ensembl"
 ]
 ```
-Then, specify the task in the main function. The following exampe shows how to run human_ocr_ensembl: ```classify_main(cfg, "human_ocr_ensembl")```
+Then, specify the task in the main function. The following example shows how to run human_ocr_ensembl: ```classify_main(cfg, "human_ocr_ensembl")```
 The optimal hyperparameters for each dataset are fixed in **config_gb.yaml**.
+
+### Experimental Results
+| Dataset                  | CNN [1] | Transformer [2] | HyenaDNA [2] | DNASWAN |
+| ------------------------ | ------- | --------------- | ------------ | ------- |
+| Mouse Enhancers          | 69.0    | 80.1            | 84.3         | **92.19** |
+| Coding vs Intergenomic   | 87.6    | 88.8            | 87.6         | **92.85** |
+| Human vs Worm            | 93.0    | 95.6            | 96.5         | **96.65** |
+| Human Enhancers Cohn     | 69.5    | 70.5            | 73.8         | **73.88** |
+| Human Enhancers Ensmbl   | 68.9    | 83.5            | 89.2         | **90.32** |
+| Human Regulatory         | 93.3    | 91.5            | 93.8         | **94.04** |
+| Human Nontata Promoters  | 84.6    | 87.7            | 96.6         | **97.62** |
+| Human OCR Ensembl        | 68.0    | 73.0            | **80.9**     | 77.52   |
+| Average                  | 79.2    | 83.8            | 87.8         | **89.38** |
