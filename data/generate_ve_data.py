@@ -80,11 +80,17 @@ def generat_data(data, length, split, key):
     alt_all = torch.from_numpy(numpy.array(alt_all)).to(torch.float16)
     tissue_all = torch.from_numpy(numpy.array(tissue_all)).to(torch.int8)
     label_all = torch.from_numpy(numpy.array(label_all)).to(torch.float16)
-    torch.save(ref_all, f"./data/ref_{length}_{key}_{split}_new.pt")
-    torch.save(alt_all, f"./data/alt_{length}_{key}_{split}_new.pt")
-    torch.save(tissue_all, f"./data/tissue_{length}_{key}_{split}_new.pt")
-    torch.save(label_all, f"./data/label_{length}_{key}_{split}_new.pt")
-    return ref_all, alt_all, tissue_all, label_all
+
+    if split == "test":
+        torch.save(ref_all, f"./data/ref_{length}_{key}_{split}.pt")
+        torch.save(alt_all, f"./data/alt_{length}_{key}_{split}.pt")
+        torch.save(tissue_all, f"./data/tissue_{length}_{key}_{split}.pt")
+        torch.save(label_all, f"./data/label_{length}_{key}_{split}.pt")
+    else:
+        torch.save(ref_all, f"./data/ref_{length}_{split}.pt")
+        torch.save(alt_all, f"./data/alt_{length}_{split}.pt")
+        torch.save(tissue_all, f"./data/tissue_{length}_{split}.pt")
+        torch.save(label_all, f"./data/label_{length}_{split}.pt")
 
 """
     Use chromosome 11 as test.
