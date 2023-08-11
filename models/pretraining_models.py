@@ -3,8 +3,11 @@ import torch.nn as nn
 import math
 import numpy as np
 
-class Model4Pretrain_CM(nn.Module):
-    "CDIL Model for Pretrain : Masked LM"
+class Model4Pretrain(nn.Module):
+    """
+    DNASwan Model for Pretrain : Masked LM
+    With one DNASwan encoder and one DNASwan decoder.
+    """
     def __init__(self, input_size, max_len, embedding_size, track_size, hidden_size, mlp_dropout, layer_dropout, prenorm, norm):
         super().__init__()
         self.max_n_layers = math.ceil(np.log2(max_len))
