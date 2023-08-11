@@ -16,7 +16,7 @@
 | 10kbp   | **71.61**   |          | /       | 69.12         | 60.05     | /           | 51.98 | 62.13 |
 | 20kbp   | **71.90**   |          | /       | 50.00         | 50.00     | /           | 50.01 | 52.21 |
 
-## OCRs prediciton in plants
+## OCRs prediciton in plants.
 
 ### Experimental Results
 | Plant               | A.thaliana | B.distachyon | O.sativa-MH | O.sativa-ZS | S.bicolor | S.italica | Z.mays |
@@ -72,7 +72,7 @@ Then, specify the task in the main function. The following example shows how to 
 The optimal hyperparameters for each dataset are fixed in **config_gb.yaml**.
 
 ### Experimental Results
-| Dataset                  | CNN [1] | Transformer [2] | HyenaDNA [2] | DNASWAN |
+| Dataset                  | CNN | Transformer | HyenaDNA | DNASWAN |
 | ------------------------ | ------- | --------------- | ------------ | ------- |
 | Mouse Enhancers          | 69.0    | 80.1            | 84.3         | **92.19** |
 | Coding vs Intergenomic   | 87.6    | 88.8            | 87.6         | **92.85** |
