@@ -6,7 +6,7 @@
 3. Run **pretraining.py** with the generated data. Configurations of different lengths shall be changed accordingly in config.yaml.
 ### To fine-tune a pretrained model, you need to:
 1. Run **generate_ve_data.py** to save data. Sequence lengths is required. A total of 97,922 sequence will be extracted.
-2. Run ve_classification.py to load the pretrained model under the folder "Pretrained_models" and train DNASwan.
+2. Run **ve_classification.py** to load the pretrained model under the folder "Pretrained_models" and train DNASwan.
 ### Experimental Results
 
 | lengths | DNASWAN w/o | Enformer | DeepSEA | Nystromformer | Linformer | Transformer | Mega | S4 |
