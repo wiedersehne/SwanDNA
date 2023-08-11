@@ -29,7 +29,7 @@ The hyperparameters of pretraining is in supplementaty document.
 | Human OCR Ensembl       | 71-593       | 315    | 139804   | 34952    | 2       |
 
 2. Run genomic_classification.py to load the pretrained model under the folder "Pretrained_models" and train DNASwan. You need to choose a task name from 
-**
+```
 task_names = [
     "human_nontata_promoters",
     "human_enhancers_cohn",
@@ -41,5 +41,5 @@ task_names = [
     "human_ensembl_regulatory",
     "human_ocr_ensembl"
 ]
-**
+```
 The optimal hyperparameters for each dataset are fixed in **config_gb.yaml**.
