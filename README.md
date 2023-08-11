@@ -54,7 +54,7 @@ The hyperparameters of pretraining is in supplementaty document.
 | Human Nontata Promoters | 251          | /      | 27097    | 9034     | 2       |
 | Human OCR Ensembl       | 71-593       | 315    | 139804   | 34952    | 2       |
 
-2. Run **genomic_classification.py** to load the pretrained model under the folder "Pretrained_models" and train DNASwan. More specifically, you need firstly to choose a task name from the list below.
+2. Run **genomic_classification.py** to load the pretrained model under the folder **Pretrained_models/DNASwan_GRCH38_100000_144_256.pt** and train DNASwan. More specifically, you need firstly to choose a task name from the list below.
 ```
 task_names = [
     "human_nontata_promoters",
