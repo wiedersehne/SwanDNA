@@ -55,15 +55,6 @@ Fine_tuning:
     heads: 2
     max_len: 20000
     output_size: 49
-  Cosformer:
-    name: "cosformer"
-    dim_in: 5
-    dim_out: 10
-    clf_dim: 10
-    layers: 2
-    heads: 2
-    max_len: 1000
-    output_size: 49
   Mega:
     name: "mega"
     dim_in: 5
@@ -76,8 +67,8 @@ Fine_tuning:
   S4:
     name: "s4"
     dim_in: 5
-    dim_out: 15
-    clf_dim: 15
+    dim_out: 16
+    clf_dim: 16
     layers: 2
     heads: 2
     max_len: 20000
@@ -85,8 +76,8 @@ Fine_tuning:
   Nystromformer:
     name: "nystromer"
     dim_in: 5
-    dim_out: 15
-    clf_dim: 15
+    dim_out: 16
+    clf_dim: 16
     layers: 2
     heads: 2
     max_len: 20000
