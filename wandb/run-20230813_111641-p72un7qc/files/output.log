@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/cluster/home/tonyu/VE_Pretraining/DNASWAN/ve_classification.py", line 244, in <module>
+    classify_main(cfg)
+  File "/cluster/home/tonyu/VE_Pretraining/DNASWAN/ve_classification.py", line 213, in classify_main
+    print(key, len(train_set), len(val_set))
+NameError: name 'key' is not defined

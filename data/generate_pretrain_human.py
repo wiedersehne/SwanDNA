@@ -39,13 +39,11 @@ def generate_pairs(num):
     import random
 
     # Read the CSV file containing chromosome lengths
-    chromosome_lengths_df = pd.read_csv("./data/hg38_length.csv")
+    chromosome_lengths_df = pd.read_csv("./data/chromosomes.csv")
 
-    # Create a list to store the pairs [chromosome, position]
     chroms = []
     poses = []
 
-    # Generate 1000 random pairs
     for _ in range(num):
         # Randomly select a chromosome
         random_chromosome = random.choice(chromosome_lengths_df["name"])
@@ -57,12 +55,9 @@ def generate_pairs(num):
 
         # Randomly select a position within the length range of the chromosome
         random_position = random.randint(1, chromosome_length)
-
-        # Append the pair [chromosome, position] to the list
         chroms.append(random_chromosome)
         poses.append(random_position)
 
-    # Display the first 10 pairs as an example
     print(chroms[:10])
     print(poses[:10])
     return chroms, poses
@@ -84,7 +79,7 @@ def fetch_and_transform(position_and_chrom, length, lb, masking):
     masked_gene, mask = masking(np.array(gene_to_number))
     return masked_gene.astype("int8"), mask.astype("int8"), gene_to_number
 
-def mask_chr_sequences(num, length, chroms, positions):
+def mask_chr_sequences(num, length, chroms, positions, split):
     """
         Parallelize the masking over 200k sequence.
     """
@@ -106,9 +101,9 @@ def mask_chr_sequences(num, length, chroms, positions):
 
     print(X_train.shape, M_train.shape, O_train.shape)
 
-    torch.save(X_train, f"./data/pretrain/masked_val_{length}_200k.pt")
-    torch.save(M_train, f"./data/pretrain/mask_val_{length}_200k.pt")
-    torch.save(O_train, f"./data/pretrain/gene_val_{length}_200k.pt")
+    torch.save(X_train, f"./data/masked_{split}_{length}_200k.pt")
+    torch.save(M_train, f"./data/mask_{split}_{length}_200k.pt")
+    torch.save(O_train, f"./data/gene_{split}_{length}_200k.pt")
 
 
 
@@ -121,5 +116,5 @@ chromosomes.append("chrY")
 print(chromosomes)
 
 masking = UniformMasking(0.3)
-chroms, positions = generate_pairs(1000)
-mask_chr_sequences(200000, 100000, chroms, positions)
+chroms, positions = generate_pairs(200000)
+mask_chr_sequences(200000, 100000, chroms, positions, "train")

@@ -56,7 +56,7 @@ Human_Enhancers_Cohn:
     weight_decay: 0.1
     learning_rate: 0.00008
     save_every: 2500
-    n_epochs: 180
+    n_epochs: 800
     device: "cuda"
     patience: -1
     swa_lrs: -1
@@ -65,7 +65,7 @@ Human_Enhancers_Cohn:
     output_size: 2
     embedding_size: 144
     max_len: 500
-    track_size: 16
+    track_size: 24
     hidden_size: 256
     mlp_dropout: 0
     layer_dropout: 0
@@ -89,7 +89,7 @@ Demo_Human_Or_Worm:
     input_size: 5
     output_size: 2
     embedding_size: 144
-    max_len: 200
+    max_len: 100
     track_size: 24
     hidden_size: 256
     mlp_dropout: 0
@@ -113,9 +113,9 @@ Demo_Mouse_Enhancers:
   DNASwan:
     input_size: 5
     output_size: 2
-    embedding_size: 72
+    embedding_size: 144
     max_len: 4776
-    track_size: 8
+    track_size: 16
     hidden_size: 256
     mlp_dropout: 0
     layer_dropout: 0
@@ -129,7 +129,7 @@ Demo_Coding_Inter:
     n_warmup_steps: 50000
     n_cycles: 0.5
     weight_decay: 0.1
-    learning_rate: 0.0001
+    learning_rate: 0.001
     save_every: 2500
     n_epochs: 80
     device: "cuda"
@@ -147,31 +147,6 @@ Demo_Coding_Inter:
     prenorm: "None"
     norm: "None"
     coeff: 1.2
-Drop_Enhancer_Stark:
-  training:
-    pretrained: False
-    batch_size: 128
-    n_warmup_steps: 50000
-    n_cycles: 0.5
-    weight_decay: 0.1
-    learning_rate: 0.0001
-    save_every: 2500
-    n_epochs: 80
-    device: "cuda"
-    patience: -1
-    swa_lrs: -1
-  DNASwan:
-    input_size: 5
-    output_size: 2
-    embedding_size: 36
-    max_len: 3237
-    track_size: 8
-    hidden_size: 256
-    mlp_dropout: 0
-    layer_dropout: 0
-    prenorm: "None"
-    norm: "None"
-    coeff: 1.2
 Human_Enhancers_Ensembl:
   training:
     pretrained: True
@@ -179,9 +154,9 @@ Human_Enhancers_Ensembl:
     n_warmup_steps: 50000
     n_cycles: 0.5
     weight_decay: 0.1
-    learning_rate: 0.00008
+    learning_rate: 0.0001
     save_every: 2500
-    n_epochs: 100
+    n_epochs: 300
     device: "cuda"
     patience: -1
     swa_lrs: -1
@@ -206,7 +181,7 @@ Human_Regulatory:
     weight_decay: 0.1
     learning_rate: 0.0001
     save_every: 2500
-    n_epochs: 200
+    n_epochs: 400
     device: "cuda"
     patience: -1
     swa_lrs: -1

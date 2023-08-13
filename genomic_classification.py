@@ -4,7 +4,6 @@ from omegaconf import OmegaConf
 from functools import lru_cache
 from torch.utils.data import DataLoader
 from torchmetrics import Accuracy
-from utils import *
 from models.DNASwan import GB_Classifier
 from data_utils import gb_Dataset
 import pytorch_lightning as pl
@@ -22,7 +21,7 @@ class LightningWrapper(pl.LightningModule):
         self.save_hyperparameters(cfg)
         self.model_config = self.hparams.DNASwan
         self.batch_size = self.hparams.training.batch_size
-        self.output = self.hparams.DNASwan.output
+        self.output = self.hparams.DNASwan.output_size
         self.length = self.hparams.DNASwan.max_len
         self.model = model(**self.model_config)
         self.save_every = self.hparams.training.save_every
@@ -39,7 +38,7 @@ class LightningWrapper(pl.LightningModule):
         print(self.model)
 
         if pretrained:
-            pretrained_path = f'./pretrained_models/pretrain/{self.file_name}'
+            pretrained_path = f'./Pretrained_models/{self.file_name}'
             pretrained = torch.load(pretrained_path, map_location='cpu')
             pretrained = pretrained["MODEL_STATE"]
 
@@ -147,9 +146,9 @@ def classify_main(cfg, task):
         config = cfg.Human_Enhancers_Cohn
     elif task == "demo_human_or_worm":
         config = cfg.Demo_Human_Or_Worm
-    elif task == "demo_mouse_enhancers":
+    elif task == "dummy_mouse_enhancers_ensembl":
         config = cfg.Demo_Mouse_Enhancers
-    elif task == "demo_coding_inter":
+    elif task == "demo_coding_vs_intergenomic_seqs":
         config = cfg.Demo_Coding_Inter
     elif task == "drosophila_enhancers_stark":
         config = cfg.Drop_Enhancer_Stark
@@ -168,10 +167,10 @@ def classify_main(cfg, task):
     length = config.DNASwan.max_len
     loss = nn.CrossEntropyLoss(reduction='mean')
 
-    train_X = torch.load(f"./data/GB/{task}_X_train.pt")
-    train_y = torch.load(f"./data/GB/{task}_y_train.pt")
-    test_X = torch.load(f"./data/GB/{task}_X_test.pt")
-    test_y = torch.load(f"./data/GB/{task}_y_test.pt")
+    train_X = torch.load(f"./data/{task}_X_train.pt")
+    train_y = torch.load(f"./data/{task}_y_train.pt")
+    test_X = torch.load(f"./data/{task}_X_test.pt")
+    test_y = torch.load(f"./data/{task}_y_test.pt")
 
     train_set =  gb_Dataset(train_X, train_y)
     val_set = gb_Dataset(test_X, test_y)
@@ -181,7 +180,7 @@ def classify_main(cfg, task):
     """
 
     ddp = DDPStrategy(process_group_backend="nccl", find_unused_parameters=True)
-    pretrained_model = "model_22_100000_256_0.1092.pt"
+    pretrained_model = "DNASwan_GRCH38_100000_144_256.pt"
 
     model = LightningWrapper(GB_Classifier, config, train_set, val_set, pretrained, loss, pretrained_model)
     summary = ModelSummary(model, max_depth=-1)
@@ -190,13 +189,13 @@ def classify_main(cfg, task):
     4. init trainer
     """
 
-    wandb_logger = WandbLogger(dir="./wandb/", project="Human_OCR", entity='tonyu', name=f'{pretrained_model}_{length}_{pretrained}')
+    wandb_logger = WandbLogger(dir="./wandb/", project="Human_promoter", entity='tonyu', name=f'{pretrained_model}_{length}_{pretrained}')
     checkpoint_callback = ModelCheckpoint(monitor="val_acc", mode="max")
 
     lr_monitor = LearningRateMonitor(logging_interval='step')
     callbacks_for_trainer = [TQDMProgressBar(refresh_rate=10), lr_monitor, checkpoint_callback]
     if config.training.patience != -1:
-        early_stopping = EarlyStopping(monitor="val_auroc", mode="max", min_delta=0., patience=cfg.Fine_tuning.training.patience)
+        early_stopping = EarlyStopping(monitor="val_acc", mode="max", min_delta=0., patience=cfg.Fine_tuning.training.patience)
         callbacks_for_trainer.append(early_stopping)
     if config.training.swa_lrs != -1:
         swa = StochasticWeightAveraging(swa_lrs=1e-2)
@@ -221,4 +220,4 @@ def classify_main(cfg, task):
 if __name__ == "__main__":
     cfg = OmegaConf.load('./config/config_gb.yaml')
     OmegaConf.set_struct(cfg, False)
-    classify_main(cfg, "human_ocr_ensembl")
+    classify_main(cfg, "human_nontata_promoters")

@@ -1,0 +1,3410 @@
+    | Name                                                 | Type             | Params
+--------------------------------------------------------------------------------------------
+0   | model                                                | GB_Classifier    | 1.6 M
+1   | model.embedding                                      | Linear           | 864
+2   | model.encoder                                        | DANSwanEncoder   | 741 K
+3   | model.encoder.DANSwan_blocks                         | ModuleList       | 741 K
+4   | model.encoder.DANSwan_blocks.0                       | DANSwanBlock     | 74.1 K
+5   | model.encoder.DANSwan_blocks.0.prenorm               | Identity         | 0
+6   | model.encoder.DANSwan_blocks.0.norm                  | Identity         | 0
+7   | model.encoder.DANSwan_blocks.0.column_transform      | Mlp              | 74.1 K
+8   | model.encoder.DANSwan_blocks.0.column_transform.fc1  | Linear           | 37.1 K
+9   | model.encoder.DANSwan_blocks.0.column_transform.act  | GELU             | 0
+10  | model.encoder.DANSwan_blocks.0.column_transform.fc2  | Linear           | 37.0 K
+11  | model.encoder.DANSwan_blocks.0.column_transform.drop | Dropout          | 0
+12  | model.encoder.DANSwan_blocks.0.dropout               | Dropout          | 0
+13  | model.encoder.DANSwan_blocks.0.shift                 | CircularShift    | 0
+14  | model.encoder.DANSwan_blocks.1                       | DANSwanBlock     | 74.1 K
+15  | model.encoder.DANSwan_blocks.1.prenorm               | Identity         | 0
+16  | model.encoder.DANSwan_blocks.1.norm                  | Identity         | 0
+17  | model.encoder.DANSwan_blocks.1.column_transform      | Mlp              | 74.1 K
+18  | model.encoder.DANSwan_blocks.1.column_transform.fc1  | Linear           | 37.1 K
+19  | model.encoder.DANSwan_blocks.1.column_transform.act  | GELU             | 0
+20  | model.encoder.DANSwan_blocks.1.column_transform.fc2  | Linear           | 37.0 K
+21  | model.encoder.DANSwan_blocks.1.column_transform.drop | Dropout          | 0
+22  | model.encoder.DANSwan_blocks.1.dropout               | Dropout          | 0
+23  | model.encoder.DANSwan_blocks.1.shift                 | CircularShift    | 0
+24  | model.encoder.DANSwan_blocks.2                       | DANSwanBlock     | 74.1 K
+25  | model.encoder.DANSwan_blocks.2.prenorm               | Identity         | 0
+26  | model.encoder.DANSwan_blocks.2.norm                  | Identity         | 0
+27  | model.encoder.DANSwan_blocks.2.column_transform      | Mlp              | 74.1 K
+28  | model.encoder.DANSwan_blocks.2.column_transform.fc1  | Linear           | 37.1 K
+29  | model.encoder.DANSwan_blocks.2.column_transform.act  | GELU             | 0
+30  | model.encoder.DANSwan_blocks.2.column_transform.fc2  | Linear           | 37.0 K
+31  | model.encoder.DANSwan_blocks.2.column_transform.drop | Dropout          | 0
+32  | model.encoder.DANSwan_blocks.2.dropout               | Dropout          | 0
+33  | model.encoder.DANSwan_blocks.2.shift                 | CircularShift    | 0
+34  | model.encoder.DANSwan_blocks.3                       | DANSwanBlock     | 74.1 K
+35  | model.encoder.DANSwan_blocks.3.prenorm               | Identity         | 0
+36  | model.encoder.DANSwan_blocks.3.norm                  | Identity         | 0
+37  | model.encoder.DANSwan_blocks.3.column_transform      | Mlp              | 74.1 K
+38  | model.encoder.DANSwan_blocks.3.column_transform.fc1  | Linear           | 37.1 K
+39  | model.encoder.DANSwan_blocks.3.column_transform.act  | GELU             | 0
+40  | model.encoder.DANSwan_blocks.3.column_transform.fc2  | Linear           | 37.0 K
+41  | model.encoder.DANSwan_blocks.3.column_transform.drop | Dropout          | 0
+42  | model.encoder.DANSwan_blocks.3.dropout               | Dropout          | 0
+43  | model.encoder.DANSwan_blocks.3.shift                 | CircularShift    | 0
+44  | model.encoder.DANSwan_blocks.4                       | DANSwanBlock     | 74.1 K
+45  | model.encoder.DANSwan_blocks.4.prenorm               | Identity         | 0
+46  | model.encoder.DANSwan_blocks.4.norm                  | Identity         | 0
+47  | model.encoder.DANSwan_blocks.4.column_transform      | Mlp              | 74.1 K
+48  | model.encoder.DANSwan_blocks.4.column_transform.fc1  | Linear           | 37.1 K
+49  | model.encoder.DANSwan_blocks.4.column_transform.act  | GELU             | 0
+50  | model.encoder.DANSwan_blocks.4.column_transform.fc2  | Linear           | 37.0 K
+51  | model.encoder.DANSwan_blocks.4.column_transform.drop | Dropout          | 0
+52  | model.encoder.DANSwan_blocks.4.dropout               | Dropout          | 0
+53  | model.encoder.DANSwan_blocks.4.shift                 | CircularShift    | 0
+54  | model.encoder.DANSwan_blocks.5                       | DANSwanBlock     | 74.1 K
+55  | model.encoder.DANSwan_blocks.5.prenorm               | Identity         | 0
+56  | model.encoder.DANSwan_blocks.5.norm                  | Identity         | 0
+57  | model.encoder.DANSwan_blocks.5.column_transform      | Mlp              | 74.1 K
+58  | model.encoder.DANSwan_blocks.5.column_transform.fc1  | Linear           | 37.1 K
+59  | model.encoder.DANSwan_blocks.5.column_transform.act  | GELU             | 0
+60  | model.encoder.DANSwan_blocks.5.column_transform.fc2  | Linear           | 37.0 K
+61  | model.encoder.DANSwan_blocks.5.column_transform.drop | Dropout          | 0
+62  | model.encoder.DANSwan_blocks.5.dropout               | Dropout          | 0
+63  | model.encoder.DANSwan_blocks.5.shift                 | CircularShift    | 0
+64  | model.encoder.DANSwan_blocks.6                       | DANSwanBlock     | 74.1 K
+65  | model.encoder.DANSwan_blocks.6.prenorm               | Identity         | 0
+66  | model.encoder.DANSwan_blocks.6.norm                  | Identity         | 0
+67  | model.encoder.DANSwan_blocks.6.column_transform      | Mlp              | 74.1 K
+68  | model.encoder.DANSwan_blocks.6.column_transform.fc1  | Linear           | 37.1 K
+69  | model.encoder.DANSwan_blocks.6.column_transform.act  | GELU             | 0
+70  | model.encoder.DANSwan_blocks.6.column_transform.fc2  | Linear           | 37.0 K
+71  | model.encoder.DANSwan_blocks.6.column_transform.drop | Dropout          | 0
+72  | model.encoder.DANSwan_blocks.6.dropout               | Dropout          | 0
+73  | model.encoder.DANSwan_blocks.6.shift                 | CircularShift    | 0
+74  | model.encoder.DANSwan_blocks.7                       | DANSwanBlock     | 74.1 K
+75  | model.encoder.DANSwan_blocks.7.prenorm               | Identity         | 0
+76  | model.encoder.DANSwan_blocks.7.norm                  | Identity         | 0
+77  | model.encoder.DANSwan_blocks.7.column_transform      | Mlp              | 74.1 K
+78  | model.encoder.DANSwan_blocks.7.column_transform.fc1  | Linear           | 37.1 K
+79  | model.encoder.DANSwan_blocks.7.column_transform.act  | GELU             | 0
+80  | model.encoder.DANSwan_blocks.7.column_transform.fc2  | Linear           | 37.0 K
+81  | model.encoder.DANSwan_blocks.7.column_transform.drop | Dropout          | 0
+82  | model.encoder.DANSwan_blocks.7.dropout               | Dropout          | 0
+83  | model.encoder.DANSwan_blocks.7.shift                 | CircularShift    | 0
+84  | model.encoder.DANSwan_blocks.8                       | DANSwanBlock     | 74.1 K
+85  | model.encoder.DANSwan_blocks.8.prenorm               | Identity         | 0
+86  | model.encoder.DANSwan_blocks.8.norm                  | Identity         | 0
+87  | model.encoder.DANSwan_blocks.8.column_transform      | Mlp              | 74.1 K
+88  | model.encoder.DANSwan_blocks.8.column_transform.fc1  | Linear           | 37.1 K
+89  | model.encoder.DANSwan_blocks.8.column_transform.act  | GELU             | 0
+90  | model.encoder.DANSwan_blocks.8.column_transform.fc2  | Linear           | 37.0 K
+91  | model.encoder.DANSwan_blocks.8.column_transform.drop | Dropout          | 0
+92  | model.encoder.DANSwan_blocks.8.dropout               | Dropout          | 0
+93  | model.encoder.DANSwan_blocks.8.shift                 | CircularShift    | 0
+94  | model.encoder.DANSwan_blocks.9                       | DANSwanBlock     | 74.1 K
+95  | model.encoder.DANSwan_blocks.9.prenorm               | Identity         | 0
+96  | model.encoder.DANSwan_blocks.9.norm                  | Identity         | 0
+97  | model.encoder.DANSwan_blocks.9.column_transform      | Mlp              | 74.1 K
+98  | model.encoder.DANSwan_blocks.9.column_transform.fc1  | Linear           | 37.1 K
+99  | model.encoder.DANSwan_blocks.9.column_transform.act  | GELU             | 0
+100 | model.encoder.DANSwan_blocks.9.column_transform.fc2  | Linear           | 37.0 K
+101 | model.encoder.DANSwan_blocks.9.column_transform.drop | Dropout          | 0
+102 | model.encoder.DANSwan_blocks.9.dropout               | Dropout          | 0
+103 | model.encoder.DANSwan_blocks.9.shift                 | CircularShift    | 0
+104 | model.cm_clf                                         | DANSwanEncoder   | 888 K
+105 | model.cm_clf.DANSwan_blocks                          | ModuleList       | 888 K
+106 | model.cm_clf.DANSwan_blocks.0                        | DANSwanBlock     | 88.9 K
+107 | model.cm_clf.DANSwan_blocks.0.prenorm                | Identity         | 0
+108 | model.cm_clf.DANSwan_blocks.0.norm                   | Identity         | 0
+109 | model.cm_clf.DANSwan_blocks.0.column_transform       | Mlp              | 88.9 K
+110 | model.cm_clf.DANSwan_blocks.0.column_transform.fc1   | Linear           | 44.5 K
+111 | model.cm_clf.DANSwan_blocks.0.column_transform.act   | GELU             | 0
+112 | model.cm_clf.DANSwan_blocks.0.column_transform.fc2   | Linear           | 44.4 K
+113 | model.cm_clf.DANSwan_blocks.0.column_transform.drop  | Dropout          | 0
+114 | model.cm_clf.DANSwan_blocks.0.dropout                | Dropout          | 0
+115 | model.cm_clf.DANSwan_blocks.0.shift                  | CircularShift    | 0
+116 | model.cm_clf.DANSwan_blocks.1                        | DANSwanBlock     | 88.9 K
+117 | model.cm_clf.DANSwan_blocks.1.prenorm                | Identity         | 0
+118 | model.cm_clf.DANSwan_blocks.1.norm                   | Identity         | 0
+119 | model.cm_clf.DANSwan_blocks.1.column_transform       | Mlp              | 88.9 K
+120 | model.cm_clf.DANSwan_blocks.1.column_transform.fc1   | Linear           | 44.5 K
+121 | model.cm_clf.DANSwan_blocks.1.column_transform.act   | GELU             | 0
+122 | model.cm_clf.DANSwan_blocks.1.column_transform.fc2   | Linear           | 44.4 K
+123 | model.cm_clf.DANSwan_blocks.1.column_transform.drop  | Dropout          | 0
+124 | model.cm_clf.DANSwan_blocks.1.dropout                | Dropout          | 0
+125 | model.cm_clf.DANSwan_blocks.1.shift                  | CircularShift    | 0
+126 | model.cm_clf.DANSwan_blocks.2                        | DANSwanBlock     | 88.9 K
+127 | model.cm_clf.DANSwan_blocks.2.prenorm                | Identity         | 0
+128 | model.cm_clf.DANSwan_blocks.2.norm                   | Identity         | 0
+129 | model.cm_clf.DANSwan_blocks.2.column_transform       | Mlp              | 88.9 K
+130 | model.cm_clf.DANSwan_blocks.2.column_transform.fc1   | Linear           | 44.5 K
+131 | model.cm_clf.DANSwan_blocks.2.column_transform.act   | GELU             | 0
+132 | model.cm_clf.DANSwan_blocks.2.column_transform.fc2   | Linear           | 44.4 K
+133 | model.cm_clf.DANSwan_blocks.2.column_transform.drop  | Dropout          | 0
+134 | model.cm_clf.DANSwan_blocks.2.dropout                | Dropout          | 0
+135 | model.cm_clf.DANSwan_blocks.2.shift                  | CircularShift    | 0
+136 | model.cm_clf.DANSwan_blocks.3                        | DANSwanBlock     | 88.9 K
+137 | model.cm_clf.DANSwan_blocks.3.prenorm                | Identity         | 0
+138 | model.cm_clf.DANSwan_blocks.3.norm                   | Identity         | 0
+139 | model.cm_clf.DANSwan_blocks.3.column_transform       | Mlp              | 88.9 K
+140 | model.cm_clf.DANSwan_blocks.3.column_transform.fc1   | Linear           | 44.5 K
+141 | model.cm_clf.DANSwan_blocks.3.column_transform.act   | GELU             | 0
+142 | model.cm_clf.DANSwan_blocks.3.column_transform.fc2   | Linear           | 44.4 K
+143 | model.cm_clf.DANSwan_blocks.3.column_transform.drop  | Dropout          | 0
+144 | model.cm_clf.DANSwan_blocks.3.dropout                | Dropout          | 0
+145 | model.cm_clf.DANSwan_blocks.3.shift                  | CircularShift    | 0
+146 | model.cm_clf.DANSwan_blocks.4                        | DANSwanBlock     | 88.9 K
+147 | model.cm_clf.DANSwan_blocks.4.prenorm                | Identity         | 0
+148 | model.cm_clf.DANSwan_blocks.4.norm                   | Identity         | 0
+149 | model.cm_clf.DANSwan_blocks.4.column_transform       | Mlp              | 88.9 K
+150 | model.cm_clf.DANSwan_blocks.4.column_transform.fc1   | Linear           | 44.5 K
+151 | model.cm_clf.DANSwan_blocks.4.column_transform.act   | GELU             | 0
+152 | model.cm_clf.DANSwan_blocks.4.column_transform.fc2   | Linear           | 44.4 K
+153 | model.cm_clf.DANSwan_blocks.4.column_transform.drop  | Dropout          | 0
+154 | model.cm_clf.DANSwan_blocks.4.dropout                | Dropout          | 0
+155 | model.cm_clf.DANSwan_blocks.4.shift                  | CircularShift    | 0
+156 | model.cm_clf.DANSwan_blocks.5                        | DANSwanBlock     | 88.9 K
+157 | model.cm_clf.DANSwan_blocks.5.prenorm                | Identity         | 0
+158 | model.cm_clf.DANSwan_blocks.5.norm                   | Identity         | 0
+159 | model.cm_clf.DANSwan_blocks.5.column_transform       | Mlp              | 88.9 K
+160 | model.cm_clf.DANSwan_blocks.5.column_transform.fc1   | Linear           | 44.5 K
+161 | model.cm_clf.DANSwan_blocks.5.column_transform.act   | GELU             | 0
+162 | model.cm_clf.DANSwan_blocks.5.column_transform.fc2   | Linear           | 44.4 K
+163 | model.cm_clf.DANSwan_blocks.5.column_transform.drop  | Dropout          | 0
+164 | model.cm_clf.DANSwan_blocks.5.dropout                | Dropout          | 0
+165 | model.cm_clf.DANSwan_blocks.5.shift                  | CircularShift    | 0
+166 | model.cm_clf.DANSwan_blocks.6                        | DANSwanBlock     | 88.9 K
+167 | model.cm_clf.DANSwan_blocks.6.prenorm                | Identity         | 0
+168 | model.cm_clf.DANSwan_blocks.6.norm                   | Identity         | 0
+169 | model.cm_clf.DANSwan_blocks.6.column_transform       | Mlp              | 88.9 K
+170 | model.cm_clf.DANSwan_blocks.6.column_transform.fc1   | Linear           | 44.5 K
+171 | model.cm_clf.DANSwan_blocks.6.column_transform.act   | GELU             | 0
+172 | model.cm_clf.DANSwan_blocks.6.column_transform.fc2   | Linear           | 44.4 K
+173 | model.cm_clf.DANSwan_blocks.6.column_transform.drop  | Dropout          | 0
+174 | model.cm_clf.DANSwan_blocks.6.dropout                | Dropout          | 0
+175 | model.cm_clf.DANSwan_blocks.6.shift                  | CircularShift    | 0
+176 | model.cm_clf.DANSwan_blocks.7                        | DANSwanBlock     | 88.9 K
+177 | model.cm_clf.DANSwan_blocks.7.prenorm                | Identity         | 0
+178 | model.cm_clf.DANSwan_blocks.7.norm                   | Identity         | 0
+179 | model.cm_clf.DANSwan_blocks.7.column_transform       | Mlp              | 88.9 K
+180 | model.cm_clf.DANSwan_blocks.7.column_transform.fc1   | Linear           | 44.5 K
+181 | model.cm_clf.DANSwan_blocks.7.column_transform.act   | GELU             | 0
+182 | model.cm_clf.DANSwan_blocks.7.column_transform.fc2   | Linear           | 44.4 K
+183 | model.cm_clf.DANSwan_blocks.7.column_transform.drop  | Dropout          | 0
+184 | model.cm_clf.DANSwan_blocks.7.dropout                | Dropout          | 0
+185 | model.cm_clf.DANSwan_blocks.7.shift                  | CircularShift    | 0
+186 | model.cm_clf.DANSwan_blocks.8                        | DANSwanBlock     | 88.9 K
+187 | model.cm_clf.DANSwan_blocks.8.prenorm                | Identity         | 0
+188 | model.cm_clf.DANSwan_blocks.8.norm                   | Identity         | 0
+189 | model.cm_clf.DANSwan_blocks.8.column_transform       | Mlp              | 88.9 K
+190 | model.cm_clf.DANSwan_blocks.8.column_transform.fc1   | Linear           | 44.5 K
+191 | model.cm_clf.DANSwan_blocks.8.column_transform.act   | GELU             | 0
+192 | model.cm_clf.DANSwan_blocks.8.column_transform.fc2   | Linear           | 44.4 K
+193 | model.cm_clf.DANSwan_blocks.8.column_transform.drop  | Dropout          | 0
+194 | model.cm_clf.DANSwan_blocks.8.dropout                | Dropout          | 0
+195 | model.cm_clf.DANSwan_blocks.8.shift                  | CircularShift    | 0
+196 | model.cm_clf.DANSwan_blocks.9                        | DANSwanBlock     | 88.9 K
+197 | model.cm_clf.DANSwan_blocks.9.prenorm                | Identity         | 0
+198 | model.cm_clf.DANSwan_blocks.9.norm                   | Identity         | 0
+199 | model.cm_clf.DANSwan_blocks.9.column_transform       | Mlp              | 88.9 K
+200 | model.cm_clf.DANSwan_blocks.9.column_transform.fc1   | Linear           | 44.5 K
+201 | model.cm_clf.DANSwan_blocks.9.column_transform.act   | GELU             | 0
+202 | model.cm_clf.DANSwan_blocks.9.column_transform.fc2   | Linear           | 44.4 K
+203 | model.cm_clf.DANSwan_blocks.9.column_transform.drop  | Dropout          | 0
+204 | model.cm_clf.DANSwan_blocks.9.dropout                | Dropout          | 0
+205 | model.cm_clf.DANSwan_blocks.9.shift                  | CircularShift    | 0
+206 | model.decoder                                        | Linear           | 290
+207 | loss                                                 | CrossEntropyLoss | 0
+208 | train_acc                                            | BinaryAccuracy   | 0
+209 | val_acc                                              | BinaryAccuracy   | 0
+--------------------------------------------------------------------------------------------
+889 K     Trainable params
+741 K     Non-trainable params
+1.6 M     Total params
+6.524     Total estimated model params size (MB)
+/cluster/home/tonyu/.conda/envs/monica/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:166: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3 genomic_classification.py ...
+  rank_zero_warn(
+Using 16bit None Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+/cluster/home/tonyu/.conda/envs/monica/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:166: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3 genomic_classification.py ...
+  rank_zero_warn(
+[rank: 0] Global seed set to 42
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/1
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 1 processes
+----------------------------------------------------------------------------------------------------
+You are using a CUDA device ('NVIDIA A100-PCIE-40GB') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+Num devices 1
+MANUAL Total steps 24000.0
+Epoch 0:   0%|          | 0/150 [00:00<?, ?it/s]
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name      | Type             | Params
+-----------------------------------------------
+0 | model     | GB_Classifier    | 1.6 M
+1 | loss      | CrossEntropyLoss | 0
+2 | train_acc | BinaryAccuracy   | 0
+3 | val_acc   | BinaryAccuracy   | 0
+-----------------------------------------------
+889 K     Trainable params
+741 K     Non-trainable params
+1.6 M     Total params
+3.262     Total estimated model params size (MB)
+/cluster/home/tonyu/.conda/envs/monica/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, train_dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 48 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+/cluster/home/tonyu/.conda/envs/monica/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 48 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 0:  91%|█████████ | 136/150 [00:40<00:04,  3.38it/s, loss=0.7, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 1:  82%|████████▏ | 123/150 [00:28<00:06,  4.28it/s, loss=0.691, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 2:  83%|████████▎ | 124/150 [00:28<00:06,  4.29it/s, loss=0.687, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 3:  89%|████████▊ | 133/150 [00:29<00:03,  4.50it/s, loss=0.679, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 4:  81%|████████▏ | 122/150 [00:28<00:06,  4.28it/s, loss=0.66, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 5:  83%|████████▎ | 125/150 [00:28<00:05,  4.33it/s, loss=0.646, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 6:  87%|████████▋ | 131/150 [00:29<00:04,  4.42it/s, loss=0.65, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 7:  89%|████████▊ | 133/150 [00:29<00:03,  4.46it/s, loss=0.645, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 8:  80%|████████  | 120/150 [00:28<00:07,  4.25it/s, loss=0.648, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 9:  85%|████████▍ | 127/150 [00:29<00:05,  4.35it/s, loss=0.645, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 10:  86%|████████▌ | 129/150 [00:29<00:04,  4.39it/s, loss=0.646, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 11:  91%|█████████ | 136/150 [00:30<00:03,  4.51it/s, loss=0.646, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 12:  92%|█████████▏| 138/150 [00:30<00:02,  4.56it/s, loss=0.643, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 13:  84%|████████▍ | 126/150 [00:29<00:05,  4.34it/s, loss=0.647, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 14:  88%|████████▊ | 132/150 [00:29<00:04,  4.44it/s, loss=0.646, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 15:  90%|█████████ | 135/150 [00:29<00:03,  4.52it/s, loss=0.641, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 16:  81%|████████▏ | 122/150 [00:28<00:06,  4.26it/s, loss=0.646, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 17:  86%|████████▌ | 129/150 [00:29<00:04,  4.40it/s, loss=0.649, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 18:  87%|████████▋ | 131/150 [00:29<00:04,  4.42it/s, loss=0.648, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 19:  92%|█████████▏| 138/150 [00:30<00:02,  4.56it/s, loss=0.644, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 20:  80%|████████  | 120/150 [00:28<00:07,  4.24it/s, loss=0.646, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 21:  85%|████████▍ | 127/150 [00:29<00:05,  4.35it/s, loss=0.648, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 22:  89%|████████▉ | 134/150 [00:29<00:03,  4.49it/s, loss=0.644, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 23:  91%|█████████ | 136/150 [00:30<00:03,  4.52it/s, loss=0.643, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 24:  82%|████████▏ | 123/150 [00:28<00:06,  4.28it/s, loss=0.641, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 25:  84%|████████▍ | 126/150 [00:29<00:05,  4.34it/s, loss=0.639, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 26:  87%|████████▋ | 131/150 [00:29<00:04,  4.42it/s, loss=0.642, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 27:  80%|████████  | 120/150 [00:28<00:07,  4.25it/s, loss=0.641, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 28:  81%|████████▏ | 122/150 [00:28<00:06,  4.26it/s, loss=0.641, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 29:  85%|████████▌ | 128/150 [00:29<00:05,  4.36it/s, loss=0.641, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 30:  86%|████████▌ | 129/150 [00:29<00:04,  4.38it/s, loss=0.633, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 31:  90%|█████████ | 135/150 [00:30<00:03,  4.49it/s, loss=0.633, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 32:  81%|████████  | 121/150 [00:28<00:06,  4.22it/s, loss=0.616, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 33:  81%|████████▏ | 122/150 [00:28<00:06,  4.25it/s, loss=0.611, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 34:  86%|████████▌ | 129/150 [00:29<00:04,  4.38it/s, loss=0.61, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 35:  86%|████████▌ | 129/150 [00:29<00:04,  4.38it/s, loss=0.593, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 36:  90%|█████████ | 135/150 [00:30<00:03,  4.48it/s, loss=0.591, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 37:  80%|████████  | 120/150 [00:28<00:07,  4.22it/s, loss=0.582, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 38:  80%|████████  | 120/150 [00:28<00:07,  4.21it/s, loss=0.587, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 39:  82%|████████▏ | 123/150 [00:28<00:06,  4.24it/s, loss=0.573, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 40:  82%|████████▏ | 123/150 [00:28<00:06,  4.25it/s, loss=0.563, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 41:  85%|████████▍ | 127/150 [00:29<00:05,  4.32it/s, loss=0.575, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 42:  87%|████████▋ | 131/150 [00:29<00:04,  4.39it/s, loss=0.557, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 43:  87%|████████▋ | 130/150 [00:29<00:04,  4.38it/s, loss=0.551, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 44:  89%|████████▉ | 134/150 [00:30<00:03,  4.45it/s, loss=0.556, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 45:  80%|████████  | 120/150 [00:28<00:07,  4.22it/s, loss=0.546, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 46:  80%|████████  | 120/150 [00:28<00:07,  4.21it/s, loss=0.548, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 47:  82%|████████▏ | 123/150 [00:28<00:06,  4.25it/s, loss=0.537, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 48:  85%|████████▍ | 127/150 [00:29<00:05,  4.32it/s, loss=0.538, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 49:  85%|████████▍ | 127/150 [00:29<00:05,  4.33it/s, loss=0.539, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 50:  89%|████████▉ | 134/150 [00:29<00:03,  4.48it/s, loss=0.53, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 51:  90%|█████████ | 135/150 [00:30<00:03,  4.49it/s, loss=0.53, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 52:  81%|████████  | 121/150 [00:28<00:06,  4.23it/s, loss=0.523, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 53:  85%|████████▍ | 127/150 [00:29<00:05,  4.35it/s, loss=0.525, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 54:  85%|████████▌ | 128/150 [00:29<00:05,  4.36it/s, loss=0.556, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 55:  88%|████████▊ | 132/150 [00:29<00:04,  4.42it/s, loss=0.527, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 56:  80%|████████  | 120/150 [00:28<00:07,  4.23it/s, loss=0.519, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 57:  80%|████████  | 120/150 [00:28<00:07,  4.23it/s, loss=0.515, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 58:  86%|████████▌ | 129/150 [00:29<00:04,  4.41it/s, loss=0.507, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 59:  87%|████████▋ | 130/150 [00:29<00:04,  4.41it/s, loss=0.501, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 60:  91%|█████████▏| 137/150 [00:30<00:02,  4.54it/s, loss=0.506, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 61:  83%|████████▎ | 124/150 [00:28<00:06,  4.29it/s, loss=0.514, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 62:  83%|████████▎ | 125/150 [00:28<00:05,  4.32it/s, loss=0.51, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 63:  88%|████████▊ | 132/150 [00:29<00:04,  4.45it/s, loss=0.49, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 64:  80%|████████  | 120/150 [00:28<00:07,  4.24it/s, loss=0.492, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 65:  80%|████████  | 120/150 [00:28<00:07,  4.22it/s, loss=0.512, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 66:  84%|████████▍ | 126/150 [00:29<00:05,  4.32it/s, loss=0.492, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 67:  88%|████████▊ | 132/150 [00:29<00:04,  4.44it/s, loss=0.53, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 68:  89%|████████▉ | 134/150 [00:29<00:03,  4.48it/s, loss=0.486, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 69:  80%|████████  | 120/150 [00:28<00:07,  4.22it/s, loss=0.479, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 70:  80%|████████  | 120/150 [00:28<00:07,  4.23it/s, loss=0.471, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 71:  85%|████████▍ | 127/150 [00:29<00:05,  4.34it/s, loss=0.489, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 72:  88%|████████▊ | 132/150 [00:29<00:04,  4.43it/s, loss=0.469, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 73:  89%|████████▊ | 133/150 [00:29<00:03,  4.46it/s, loss=0.468, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 74:  80%|████████  | 120/150 [00:28<00:07,  4.23it/s, loss=0.453, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 75:  80%|████████  | 120/150 [00:28<00:07,  4.22it/s, loss=0.475, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 76:  84%|████████▍ | 126/150 [00:29<00:05,  4.32it/s, loss=0.447, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 77:  84%|████████▍ | 126/150 [00:29<00:05,  4.31it/s, loss=0.455, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 78:  87%|████████▋ | 130/150 [00:29<00:04,  4.37it/s, loss=0.439, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 79:  89%|████████▉ | 134/150 [00:30<00:03,  4.46it/s, loss=0.436, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 80:  89%|████████▉ | 134/150 [00:30<00:03,  4.46it/s, loss=0.413, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 81:  80%|████████  | 120/150 [00:28<00:07,  4.22it/s, loss=0.411, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 82:  83%|████████▎ | 125/150 [00:29<00:05,  4.30it/s, loss=0.397, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 83:  83%|████████▎ | 124/150 [00:29<00:06,  4.27it/s, loss=0.394, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 84:  86%|████████▌ | 129/150 [00:29<00:04,  4.37it/s, loss=0.387, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 85:  89%|████████▊ | 133/150 [00:30<00:03,  4.43it/s, loss=0.403, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 86:  87%|████████▋ | 130/150 [00:29<00:04,  4.38it/s, loss=0.38, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 87:  91%|█████████▏| 137/150 [00:30<00:02,  4.51it/s, loss=0.378, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 88:  91%|█████████ | 136/150 [00:30<00:03,  4.48it/s, loss=0.401, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 89:  80%|████████  | 120/150 [00:28<00:07,  4.21it/s, loss=0.373, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 90:  83%|████████▎ | 125/150 [00:29<00:05,  4.29it/s, loss=0.38, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 91:  83%|████████▎ | 124/150 [00:29<00:06,  4.26it/s, loss=0.38, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 92:  85%|████████▍ | 127/150 [00:29<00:05,  4.31it/s, loss=0.393, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 93:  87%|████████▋ | 131/150 [00:29<00:04,  4.39it/s, loss=0.363, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 94:  87%|████████▋ | 130/150 [00:29<00:04,  4.39it/s, loss=0.396, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 95:  90%|█████████ | 135/150 [00:30<00:03,  4.48it/s, loss=0.359, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 96:  80%|████████  | 120/150 [00:28<00:07,  4.21it/s, loss=0.349, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 97:  92%|█████████▏| 138/150 [00:30<00:02,  4.52it/s, loss=0.36, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 98:  83%|████████▎ | 124/150 [00:28<00:06,  4.29it/s, loss=0.349, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 99:  84%|████████▍ | 126/150 [00:29<00:05,  4.33it/s, loss=0.359, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 100:  88%|████████▊ | 132/150 [00:29<00:04,  4.44it/s, loss=0.342, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 101:  92%|█████████▏| 138/150 [00:30<00:02,  4.54it/s, loss=0.337, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 102:  80%|████████  | 120/150 [00:28<00:07,  4.23it/s, loss=0.341, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 103:  84%|████████▍ | 126/150 [00:29<00:05,  4.34it/s, loss=0.34, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 104:  88%|████████▊ | 132/150 [00:29<00:04,  4.44it/s, loss=0.349, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 105:  89%|████████▊ | 133/150 [00:29<00:03,  4.45it/s, loss=0.344, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 106:  80%|████████  | 120/150 [00:28<00:07,  4.24it/s, loss=0.329, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 107:  84%|████████▍ | 126/150 [00:29<00:05,  4.33it/s, loss=0.326, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 108:  85%|████████▍ | 127/150 [00:29<00:05,  4.33it/s, loss=0.317, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 109:  89%|████████▉ | 134/150 [00:29<00:03,  4.47it/s, loss=0.319, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 110:  90%|█████████ | 135/150 [00:30<00:03,  4.49it/s, loss=0.32, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 111:  80%|████████  | 120/150 [00:28<00:07,  4.22it/s, loss=0.329, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 112:  84%|████████▍ | 126/150 [00:29<00:05,  4.33it/s, loss=0.316, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 113:  86%|████████▌ | 129/150 [00:29<00:04,  4.40it/s, loss=0.329, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 114:  90%|█████████ | 135/150 [00:30<00:03,  4.49it/s, loss=0.313, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 115:  89%|████████▉ | 134/150 [00:29<00:03,  4.47it/s, loss=0.303, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 116:  81%|████████▏ | 122/150 [00:28<00:06,  4.25it/s, loss=0.304, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 117:  86%|████████▌ | 129/150 [00:29<00:04,  4.38it/s, loss=0.308, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 118:  87%|████████▋ | 130/150 [00:29<00:04,  4.39it/s, loss=0.312, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 119:  91%|█████████ | 136/150 [00:30<00:03,  4.52it/s, loss=0.306, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 120:  81%|████████▏ | 122/150 [00:28<00:06,  4.25it/s, loss=0.309, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 121:  83%|████████▎ | 124/150 [00:28<00:06,  4.29it/s, loss=0.306, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 122:  87%|████████▋ | 130/150 [00:29<00:04,  4.40it/s, loss=0.301, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 123:  91%|█████████ | 136/150 [00:30<00:03,  4.51it/s, loss=0.293, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 124:  91%|█████████▏| 137/150 [00:30<00:02,  4.52it/s, loss=0.276, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 125:  82%|████████▏ | 123/150 [00:28<00:06,  4.28it/s, loss=0.294, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 126:  83%|████████▎ | 124/150 [00:28<00:06,  4.28it/s, loss=0.293, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 127:  87%|████████▋ | 131/150 [00:29<00:04,  4.43it/s, loss=0.296, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 128:  91%|█████████▏| 137/150 [00:30<00:02,  4.53it/s, loss=0.286, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 129:  80%|████████  | 120/150 [00:28<00:07,  4.25it/s, loss=0.275, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 130:  85%|████████▌ | 128/150 [00:29<00:05,  4.37it/s, loss=0.268, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 131:  86%|████████▌ | 129/150 [00:29<00:04,  4.39it/s, loss=0.266, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 132:  91%|█████████ | 136/150 [00:30<00:03,  4.52it/s, loss=0.26, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 133:  81%|████████▏ | 122/150 [00:28<00:06,  4.24it/s, loss=0.271, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 134:  81%|████████▏ | 122/150 [00:28<00:06,  4.24it/s, loss=0.285, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 135:  86%|████████▌ | 129/150 [00:29<00:04,  4.38it/s, loss=0.264, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 136:  90%|█████████ | 135/150 [00:29<00:03,  4.50it/s, loss=0.252, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 137:  91%|█████████▏| 137/150 [00:30<00:02,  4.53it/s, loss=0.258, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 138:  82%|████████▏ | 123/150 [00:28<00:06,  4.27it/s, loss=0.239, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 139:  86%|████████▌ | 129/150 [00:29<00:04,  4.38it/s, loss=0.244, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 140:  87%|████████▋ | 131/150 [00:29<00:04,  4.42it/s, loss=0.247, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 141:  91%|█████████ | 136/150 [00:30<00:03,  4.49it/s, loss=0.236, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 142:  91%|█████████▏| 137/150 [00:30<00:02,  4.53it/s, loss=0.246, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 143:  83%|████████▎ | 124/150 [00:28<00:06,  4.29it/s, loss=0.223, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 144:  87%|████████▋ | 130/150 [00:29<00:04,  4.41it/s, loss=0.227, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 145:  88%|████████▊ | 132/150 [00:29<00:04,  4.44it/s, loss=0.244, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 146:  80%|████████  | 120/150 [00:28<00:07,  4.24it/s, loss=0.222, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 147:  84%|████████▍ | 126/150 [00:29<00:05,  4.34it/s, loss=0.217, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 148:  86%|████████▌ | 129/150 [00:29<00:04,  4.40it/s, loss=0.219, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 149:  90%|█████████ | 135/150 [00:30<00:03,  4.49it/s, loss=0.208, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 150:  81%|████████  | 121/150 [00:28<00:06,  4.23it/s, loss=0.214, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 151:  83%|████████▎ | 124/150 [00:28<00:06,  4.30it/s, loss=0.229, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 152:  87%|████████▋ | 130/150 [00:29<00:04,  4.41it/s, loss=0.218, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 153:  88%|████████▊ | 132/150 [00:29<00:04,  4.44it/s, loss=0.207, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 154:  80%|████████  | 120/150 [00:28<00:07,  4.24it/s, loss=0.209, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 155:  83%|████████▎ | 125/150 [00:29<00:05,  4.30it/s, loss=0.205, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 156:  85%|████████▍ | 127/150 [00:29<00:05,  4.35it/s, loss=0.191, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 157:  89%|████████▊ | 133/150 [00:29<00:03,  4.47it/s, loss=0.188, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 158:  91%|█████████ | 136/150 [00:30<00:03,  4.53it/s, loss=0.188, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 159:  82%|████████▏ | 123/150 [00:28<00:06,  4.28it/s, loss=0.2, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 160:  87%|████████▋ | 130/150 [00:29<00:04,  4.41it/s, loss=0.194, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 161:  89%|████████▊ | 133/150 [00:29<00:03,  4.47it/s, loss=0.191, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 162:  80%|████████  | 120/150 [00:28<00:07,  4.22it/s, loss=0.181, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 163:  80%|████████  | 120/150 [00:28<00:07,  4.23it/s, loss=0.182, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 164:  85%|████████▍ | 127/150 [00:29<00:05,  4.35it/s, loss=0.174, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 165:  86%|████████▌ | 129/150 [00:29<00:04,  4.39it/s, loss=0.178, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 166:  91%|█████████ | 136/150 [00:30<00:03,  4.52it/s, loss=0.175, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 167:  82%|████████▏ | 123/150 [00:28<00:06,  4.28it/s, loss=0.188, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 168:  85%|████████▍ | 127/150 [00:29<00:05,  4.37it/s, loss=0.173, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 169:  89%|████████▊ | 133/150 [00:29<00:03,  4.47it/s, loss=0.173, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 170:  80%|████████  | 120/150 [00:28<00:07,  4.24it/s, loss=0.165, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 171:  81%|████████▏ | 122/150 [00:28<00:06,  4.26it/s, loss=0.164, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 172:  87%|████████▋ | 130/150 [00:29<00:04,  4.42it/s, loss=0.176, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 173:  89%|████████▊ | 133/150 [00:29<00:03,  4.48it/s, loss=0.164, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 174:  80%|████████  | 120/150 [00:28<00:07,  4.25it/s, loss=0.159, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 175:  85%|████████▍ | 127/150 [00:29<00:05,  4.36it/s, loss=0.163, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 176:  85%|████████▌ | 128/150 [00:29<00:05,  4.36it/s, loss=0.16, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 177:  91%|█████████ | 136/150 [00:30<00:03,  4.52it/s, loss=0.16, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 178:  81%|████████  | 121/150 [00:28<00:06,  4.22it/s, loss=0.151, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 179:  82%|████████▏ | 123/150 [00:28<00:06,  4.27it/s, loss=0.159, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 180:  87%|████████▋ | 131/150 [00:29<00:04,  4.44it/s, loss=0.158, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 181:  89%|████████▉ | 134/150 [00:29<00:03,  4.50it/s, loss=0.153, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 182:  81%|████████  | 121/150 [00:28<00:06,  4.24it/s, loss=0.158, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 183:  82%|████████▏ | 123/150 [00:28<00:06,  4.28it/s, loss=0.153, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 184:  87%|████████▋ | 130/150 [00:29<00:04,  4.40it/s, loss=0.153, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 185:  91%|█████████ | 136/150 [00:30<00:03,  4.51it/s, loss=0.148, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 186:  92%|█████████▏| 138/150 [00:30<00:02,  4.56it/s, loss=0.146, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 187:  83%|████████▎ | 125/150 [00:28<00:05,  4.32it/s, loss=0.154, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 188:  88%|████████▊ | 132/150 [00:29<00:04,  4.45it/s, loss=0.153, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 189:  89%|████████▉ | 134/150 [00:29<00:03,  4.48it/s, loss=0.151, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 190:  81%|████████  | 121/150 [00:28<00:06,  4.23it/s, loss=0.15, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 191:  82%|████████▏ | 123/150 [00:28<00:06,  4.27it/s, loss=0.145, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 192:  87%|████████▋ | 130/150 [00:29<00:04,  4.41it/s, loss=0.148, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 193:  91%|█████████▏| 137/150 [00:30<00:02,  4.54it/s, loss=0.144, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 194:  80%|████████  | 120/150 [00:28<00:07,  4.25it/s, loss=0.148, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 195:  84%|████████▍ | 126/150 [00:29<00:05,  4.33it/s, loss=0.146, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 196:  89%|████████▊ | 133/150 [00:29<00:03,  4.47it/s, loss=0.146, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 197:  89%|████████▉ | 134/150 [00:29<00:03,  4.48it/s, loss=0.148, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 198:  81%|████████▏ | 122/150 [00:28<00:06,  4.27it/s, loss=0.147, v_num=3l99]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch 199:  85%|████████▌ | 128/150 [00:29<00:05,  4.38it/s, loss=0.144, v_num=3l99]
+
+Validation DataLoader 0:  90%|█████████ | 27/30 [00:02<00:00,  9.65it/s]
+
+`Trainer.fit` stopped: `max_epochs=200` reached.

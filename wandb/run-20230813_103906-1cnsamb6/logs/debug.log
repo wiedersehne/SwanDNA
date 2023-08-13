@@ -1,0 +1,27 @@
+2023-08-13 10:39:06,538 INFO    MainThread:2186208 [wandb_setup.py:_flush():76] Configure stats pid to 2186208
+2023-08-13 10:39:06,539 INFO    MainThread:2186208 [wandb_setup.py:_flush():76] Loading settings from /cluster/home/tonyu/.config/wandb/settings
+2023-08-13 10:39:06,539 INFO    MainThread:2186208 [wandb_setup.py:_flush():76] Loading settings from /cluster/home/tonyu/VE_Pretraining/DNASWAN/wandb/settings
+2023-08-13 10:39:06,539 INFO    MainThread:2186208 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'_require_service': 'True'}
+2023-08-13 10:39:06,539 INFO    MainThread:2186208 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'genomic_classification.py', 'program': '/cluster/home/tonyu/VE_Pretraining/DNASWAN/genomic_classification.py'}
+2023-08-13 10:39:06,539 INFO    MainThread:2186208 [wandb_init.py:_log_setup():461] Logging user logs to ./wandb/run-20230813_103906-1cnsamb6/logs/debug.log
+2023-08-13 10:39:06,539 INFO    MainThread:2186208 [wandb_init.py:_log_setup():462] Logging internal logs to ./wandb/run-20230813_103906-1cnsamb6/logs/debug-internal.log
+2023-08-13 10:39:06,539 INFO    MainThread:2186208 [wandb_init.py:init():495] calling init triggers
+2023-08-13 10:39:06,540 INFO    MainThread:2186208 [wandb_init.py:init():498] wandb.init called with sweep_config: {}
+config: {}
+2023-08-13 10:39:06,540 INFO    MainThread:2186208 [wandb_init.py:init():548] starting backend
+2023-08-13 10:39:06,540 INFO    MainThread:2186208 [wandb_init.py:init():552] setting up manager
+2023-08-13 10:39:06,544 INFO    MainThread:2186208 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-08-13 10:39:06,550 INFO    MainThread:2186208 [wandb_init.py:init():558] backend started and connected
+2023-08-13 10:39:06,556 INFO    MainThread:2186208 [wandb_init.py:init():636] updated telemetry
+2023-08-13 10:39:06,582 INFO    MainThread:2186208 [wandb_init.py:init():667] communicating run to backend with 30 second timeout
+2023-08-13 10:39:07,377 INFO    MainThread:2186208 [wandb_run.py:_on_init():1981] communicating current version
+2023-08-13 10:39:07,471 INFO    MainThread:2186208 [wandb_run.py:_on_init():1985] got version response upgrade_message: "wandb version 0.15.8 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-08-13 10:39:07,472 INFO    MainThread:2186208 [wandb_init.py:init():700] starting run threads in backend
+2023-08-13 10:39:12,508 INFO    MainThread:2186208 [wandb_run.py:_console_start():1961] atexit reg
+2023-08-13 10:39:12,508 INFO    MainThread:2186208 [wandb_run.py:_redirect():1819] redirect: SettingsConsole.WRAP_RAW
+2023-08-13 10:39:12,508 INFO    MainThread:2186208 [wandb_run.py:_redirect():1884] Wrapping output streams.
+2023-08-13 10:39:12,508 INFO    MainThread:2186208 [wandb_run.py:_redirect():1906] Redirects installed.
+2023-08-13 10:39:12,509 INFO    MainThread:2186208 [wandb_init.py:init():732] run started, returning control to user process
+2023-08-13 10:39:17,984 INFO    MainThread:2186208 [wandb_run.py:_config_callback():1152] config_cb None None {'training/pretrained': True, 'training/batch_size': 1024, 'training/n_warmup_steps': 50000, 'training/n_cycles': 0.5, 'training/weight_decay': 0.1, 'training/learning_rate': 0.005, 'training/save_every': 2500, 'training/n_epochs': 300, 'training/device': 'cuda', 'training/patience': -1, 'training/swa_lrs': -1, 'DNASwan/input_size': 5, 'DNASwan/output_size': 2, 'DNASwan/embedding_size': 144, 'DNASwan/max_len': 251, 'DNASwan/track_size': 24, 'DNASwan/hidden_size': 256, 'DNASwan/mlp_dropout': 0, 'DNASwan/layer_dropout': 0, 'DNASwan/prenorm': 'None', 'DNASwan/norm': 'None', 'DNASwan/coeff': 1.2}
+2023-08-13 10:53:58,275 WARNING MsgRouterThr:2186208 [router.py:message_loop():76] message_loop has been closed

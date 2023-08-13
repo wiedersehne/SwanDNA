@@ -93,4 +93,4 @@ Fine_tuning:
     layer_dropout: 0
     prenorm: "None"
     norm: "None"
-    coeff: 2
+    coeff: 1
