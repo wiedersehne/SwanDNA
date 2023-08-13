@@ -1,1 +1,0 @@
-{"val_auroc": 0.654147242589194, "val_loss": 0.644251823425293, "epoch": 5, "trainer/global_step": 17621, "_timestamp": 1691927266.028796, "_runtime": 867.226842880249, "_step": 11, "train_roc": 0.6546256871189703, "train_loss": 0.6593772768974304}
