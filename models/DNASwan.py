@@ -306,6 +306,10 @@ class Classifier(nn.Module):
             module.bias.data.zero_()
             module.weight.data.fill_(1.0)
 
+    def freeze_encoder(self):
+        for param in self.encoder.parameters():
+            param.requires_grad = False
+
     def forward(self, x1, x2, idx_linear):
         x1, x2 = x1.float(), x2.float()
         x1, x2 = x1.permute(0, 2, 1), x2.permute(0, 2, 1)

@@ -39,17 +39,12 @@ class LightningWrapper(pl.LightningModule):
             pretrained = torch.load(pretrained_path, map_location='cpu')
             pretrained = pretrained["MODEL_STATE"]
 
-            # for k, v in pretrained.items():
-            #     print("pretrained", k)
-
             from collections import OrderedDict
             new_state_dict = OrderedDict()
 
             for k, v in pretrained.items():
                 if k.startswith('encoder') or k.startswith('embedding'):
                     new_state_dict[k] = v
-
-            # print("pretrained", new_state_dict.keys())
 
             net_dict = self.model.state_dict()
             pretrained_cm = {k: v for k, v in new_state_dict.items() if k in net_dict}
@@ -58,7 +53,6 @@ class LightningWrapper(pl.LightningModule):
             self.model.load_state_dict(net_dict)
             for k, v in self.model.state_dict().items():
                 print(k, v)
-            print(self.file_name)
             print("*************pretrained model loaded***************")
 
     def forward(self, x):
@@ -115,7 +109,7 @@ class LightningWrapper(pl.LightningModule):
             t = t.to(torch.int8)
             val_preds[t.item()].append(p.item())
             val_labels[t.item()].append(l.item())
-        print(f"***********{i}")
+
         val_rocs = []
         for i in range(self.model_config.output_size):
             if len(val_labels[i]) != 0 and sum(val_labels[i]) != len(val_labels[i]) and sum(val_labels[i]) != 0:

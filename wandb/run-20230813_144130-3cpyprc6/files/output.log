@@ -1,0 +1,373 @@
+/cluster/home/tonyu/.conda/envs/monica/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:166: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3 ve_classification.py ...
+  rank_zero_warn(
+Using 16bit None Automatic Mixed Precision (AMP)
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+/cluster/home/tonyu/.conda/envs/monica/lib/python3.9/site-packages/lightning_fabric/plugins/environments/slurm.py:166: PossibleUserWarning: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python3 ve_classification.py ...
+  rank_zero_warn(
+[rank: 0] Global seed set to 42
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/1
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 1 processes
+----------------------------------------------------------------------------------------------------
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+  | Name  | Type              | Params
+--------------------------------------------
+0 | model | Classifier        | 7.5 K
+1 | loss  | BCEWithLogitsLoss | 0
+--------------------------------------------
+7.5 K     Trainable params
+0         Non-trainable params
+7.5 K     Total params
+0.015     Total estimated model params size (MB)
+/cluster/home/tonyu/.conda/envs/monica/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, train_dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 40 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+/cluster/home/tonyu/.conda/envs/monica/lib/python3.9/site-packages/pytorch_lightning/trainer/connectors/data_connector.py:224: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 40 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+94015 3907
+    | Name                                                 | Type              | Params
+---------------------------------------------------------------------------------------------
+0   | model                                                | Classifier        | 7.5 K
+1   | model.embedding                                      | Linear            | 60
+2   | model.encoder                                        | DANSwanEncoder    | 3.5 K
+3   | model.encoder.DANSwan_blocks                         | ModuleList        | 3.5 K
+4   | model.encoder.DANSwan_blocks.0                       | DANSwanBlock      | 346
+5   | model.encoder.DANSwan_blocks.0.prenorm               | Identity          | 0
+6   | model.encoder.DANSwan_blocks.0.norm                  | Identity          | 0
+7   | model.encoder.DANSwan_blocks.0.column_transform      | Mlp               | 346
+8   | model.encoder.DANSwan_blocks.0.column_transform.fc1  | Linear            | 176
+9   | model.encoder.DANSwan_blocks.0.column_transform.act  | GELU              | 0
+10  | model.encoder.DANSwan_blocks.0.column_transform.fc2  | Linear            | 170
+11  | model.encoder.DANSwan_blocks.0.column_transform.drop | Dropout           | 0
+12  | model.encoder.DANSwan_blocks.0.dropout               | Dropout           | 0
+13  | model.encoder.DANSwan_blocks.0.shift                 | CircularShift     | 0
+14  | model.encoder.DANSwan_blocks.1                       | DANSwanBlock      | 346
+15  | model.encoder.DANSwan_blocks.1.prenorm               | Identity          | 0
+16  | model.encoder.DANSwan_blocks.1.norm                  | Identity          | 0
+17  | model.encoder.DANSwan_blocks.1.column_transform      | Mlp               | 346
+18  | model.encoder.DANSwan_blocks.1.column_transform.fc1  | Linear            | 176
+19  | model.encoder.DANSwan_blocks.1.column_transform.act  | GELU              | 0
+20  | model.encoder.DANSwan_blocks.1.column_transform.fc2  | Linear            | 170
+21  | model.encoder.DANSwan_blocks.1.column_transform.drop | Dropout           | 0
+22  | model.encoder.DANSwan_blocks.1.dropout               | Dropout           | 0
+23  | model.encoder.DANSwan_blocks.1.shift                 | CircularShift     | 0
+24  | model.encoder.DANSwan_blocks.2                       | DANSwanBlock      | 346
+25  | model.encoder.DANSwan_blocks.2.prenorm               | Identity          | 0
+26  | model.encoder.DANSwan_blocks.2.norm                  | Identity          | 0
+27  | model.encoder.DANSwan_blocks.2.column_transform      | Mlp               | 346
+28  | model.encoder.DANSwan_blocks.2.column_transform.fc1  | Linear            | 176
+29  | model.encoder.DANSwan_blocks.2.column_transform.act  | GELU              | 0
+30  | model.encoder.DANSwan_blocks.2.column_transform.fc2  | Linear            | 170
+31  | model.encoder.DANSwan_blocks.2.column_transform.drop | Dropout           | 0
+32  | model.encoder.DANSwan_blocks.2.dropout               | Dropout           | 0
+33  | model.encoder.DANSwan_blocks.2.shift                 | CircularShift     | 0
+34  | model.encoder.DANSwan_blocks.3                       | DANSwanBlock      | 346
+35  | model.encoder.DANSwan_blocks.3.prenorm               | Identity          | 0
+36  | model.encoder.DANSwan_blocks.3.norm                  | Identity          | 0
+37  | model.encoder.DANSwan_blocks.3.column_transform      | Mlp               | 346
+38  | model.encoder.DANSwan_blocks.3.column_transform.fc1  | Linear            | 176
+39  | model.encoder.DANSwan_blocks.3.column_transform.act  | GELU              | 0
+40  | model.encoder.DANSwan_blocks.3.column_transform.fc2  | Linear            | 170
+41  | model.encoder.DANSwan_blocks.3.column_transform.drop | Dropout           | 0
+42  | model.encoder.DANSwan_blocks.3.dropout               | Dropout           | 0
+43  | model.encoder.DANSwan_blocks.3.shift                 | CircularShift     | 0
+44  | model.encoder.DANSwan_blocks.4                       | DANSwanBlock      | 346
+45  | model.encoder.DANSwan_blocks.4.prenorm               | Identity          | 0
+46  | model.encoder.DANSwan_blocks.4.norm                  | Identity          | 0
+47  | model.encoder.DANSwan_blocks.4.column_transform      | Mlp               | 346
+48  | model.encoder.DANSwan_blocks.4.column_transform.fc1  | Linear            | 176
+49  | model.encoder.DANSwan_blocks.4.column_transform.act  | GELU              | 0
+50  | model.encoder.DANSwan_blocks.4.column_transform.fc2  | Linear            | 170
+51  | model.encoder.DANSwan_blocks.4.column_transform.drop | Dropout           | 0
+52  | model.encoder.DANSwan_blocks.4.dropout               | Dropout           | 0
+53  | model.encoder.DANSwan_blocks.4.shift                 | CircularShift     | 0
+54  | model.encoder.DANSwan_blocks.5                       | DANSwanBlock      | 346
+55  | model.encoder.DANSwan_blocks.5.prenorm               | Identity          | 0
+56  | model.encoder.DANSwan_blocks.5.norm                  | Identity          | 0
+57  | model.encoder.DANSwan_blocks.5.column_transform      | Mlp               | 346
+58  | model.encoder.DANSwan_blocks.5.column_transform.fc1  | Linear            | 176
+59  | model.encoder.DANSwan_blocks.5.column_transform.act  | GELU              | 0
+60  | model.encoder.DANSwan_blocks.5.column_transform.fc2  | Linear            | 170
+61  | model.encoder.DANSwan_blocks.5.column_transform.drop | Dropout           | 0
+62  | model.encoder.DANSwan_blocks.5.dropout               | Dropout           | 0
+63  | model.encoder.DANSwan_blocks.5.shift                 | CircularShift     | 0
+64  | model.encoder.DANSwan_blocks.6                       | DANSwanBlock      | 346
+65  | model.encoder.DANSwan_blocks.6.prenorm               | Identity          | 0
+66  | model.encoder.DANSwan_blocks.6.norm                  | Identity          | 0
+67  | model.encoder.DANSwan_blocks.6.column_transform      | Mlp               | 346
+68  | model.encoder.DANSwan_blocks.6.column_transform.fc1  | Linear            | 176
+69  | model.encoder.DANSwan_blocks.6.column_transform.act  | GELU              | 0
+70  | model.encoder.DANSwan_blocks.6.column_transform.fc2  | Linear            | 170
+71  | model.encoder.DANSwan_blocks.6.column_transform.drop | Dropout           | 0
+72  | model.encoder.DANSwan_blocks.6.dropout               | Dropout           | 0
+73  | model.encoder.DANSwan_blocks.6.shift                 | CircularShift     | 0
+74  | model.encoder.DANSwan_blocks.7                       | DANSwanBlock      | 346
+75  | model.encoder.DANSwan_blocks.7.prenorm               | Identity          | 0
+76  | model.encoder.DANSwan_blocks.7.norm                  | Identity          | 0
+77  | model.encoder.DANSwan_blocks.7.column_transform      | Mlp               | 346
+78  | model.encoder.DANSwan_blocks.7.column_transform.fc1  | Linear            | 176
+79  | model.encoder.DANSwan_blocks.7.column_transform.act  | GELU              | 0
+80  | model.encoder.DANSwan_blocks.7.column_transform.fc2  | Linear            | 170
+81  | model.encoder.DANSwan_blocks.7.column_transform.drop | Dropout           | 0
+82  | model.encoder.DANSwan_blocks.7.dropout               | Dropout           | 0
+83  | model.encoder.DANSwan_blocks.7.shift                 | CircularShift     | 0
+84  | model.encoder.DANSwan_blocks.8                       | DANSwanBlock      | 346
+85  | model.encoder.DANSwan_blocks.8.prenorm               | Identity          | 0
+86  | model.encoder.DANSwan_blocks.8.norm                  | Identity          | 0
+87  | model.encoder.DANSwan_blocks.8.column_transform      | Mlp               | 346
+88  | model.encoder.DANSwan_blocks.8.column_transform.fc1  | Linear            | 176
+89  | model.encoder.DANSwan_blocks.8.column_transform.act  | GELU              | 0
+90  | model.encoder.DANSwan_blocks.8.column_transform.fc2  | Linear            | 170
+91  | model.encoder.DANSwan_blocks.8.column_transform.drop | Dropout           | 0
+92  | model.encoder.DANSwan_blocks.8.dropout               | Dropout           | 0
+93  | model.encoder.DANSwan_blocks.8.shift                 | CircularShift     | 0
+94  | model.encoder.DANSwan_blocks.9                       | DANSwanBlock      | 346
+95  | model.encoder.DANSwan_blocks.9.prenorm               | Identity          | 0
+96  | model.encoder.DANSwan_blocks.9.norm                  | Identity          | 0
+97  | model.encoder.DANSwan_blocks.9.column_transform      | Mlp               | 346
+98  | model.encoder.DANSwan_blocks.9.column_transform.fc1  | Linear            | 176
+99  | model.encoder.DANSwan_blocks.9.column_transform.act  | GELU              | 0
+100 | model.encoder.DANSwan_blocks.9.column_transform.fc2  | Linear            | 170
+101 | model.encoder.DANSwan_blocks.9.column_transform.drop | Dropout           | 0
+102 | model.encoder.DANSwan_blocks.9.dropout               | Dropout           | 0
+103 | model.encoder.DANSwan_blocks.9.shift                 | CircularShift     | 0
+104 | model.cm_clf                                         | DANSwanEncoder    | 3.5 K
+105 | model.cm_clf.DANSwan_blocks                          | ModuleList        | 3.5 K
+106 | model.cm_clf.DANSwan_blocks.0                        | DANSwanBlock      | 346
+107 | model.cm_clf.DANSwan_blocks.0.prenorm                | Identity          | 0
+108 | model.cm_clf.DANSwan_blocks.0.norm                   | Identity          | 0
+109 | model.cm_clf.DANSwan_blocks.0.column_transform       | Mlp               | 346
+110 | model.cm_clf.DANSwan_blocks.0.column_transform.fc1   | Linear            | 176
+111 | model.cm_clf.DANSwan_blocks.0.column_transform.act   | GELU              | 0
+112 | model.cm_clf.DANSwan_blocks.0.column_transform.fc2   | Linear            | 170
+113 | model.cm_clf.DANSwan_blocks.0.column_transform.drop  | Dropout           | 0
+114 | model.cm_clf.DANSwan_blocks.0.dropout                | Dropout           | 0
+115 | model.cm_clf.DANSwan_blocks.0.shift                  | CircularShift     | 0
+116 | model.cm_clf.DANSwan_blocks.1                        | DANSwanBlock      | 346
+117 | model.cm_clf.DANSwan_blocks.1.prenorm                | Identity          | 0
+118 | model.cm_clf.DANSwan_blocks.1.norm                   | Identity          | 0
+119 | model.cm_clf.DANSwan_blocks.1.column_transform       | Mlp               | 346
+120 | model.cm_clf.DANSwan_blocks.1.column_transform.fc1   | Linear            | 176
+121 | model.cm_clf.DANSwan_blocks.1.column_transform.act   | GELU              | 0
+122 | model.cm_clf.DANSwan_blocks.1.column_transform.fc2   | Linear            | 170
+123 | model.cm_clf.DANSwan_blocks.1.column_transform.drop  | Dropout           | 0
+124 | model.cm_clf.DANSwan_blocks.1.dropout                | Dropout           | 0
+125 | model.cm_clf.DANSwan_blocks.1.shift                  | CircularShift     | 0
+126 | model.cm_clf.DANSwan_blocks.2                        | DANSwanBlock      | 346
+127 | model.cm_clf.DANSwan_blocks.2.prenorm                | Identity          | 0
+128 | model.cm_clf.DANSwan_blocks.2.norm                   | Identity          | 0
+129 | model.cm_clf.DANSwan_blocks.2.column_transform       | Mlp               | 346
+130 | model.cm_clf.DANSwan_blocks.2.column_transform.fc1   | Linear            | 176
+131 | model.cm_clf.DANSwan_blocks.2.column_transform.act   | GELU              | 0
+132 | model.cm_clf.DANSwan_blocks.2.column_transform.fc2   | Linear            | 170
+133 | model.cm_clf.DANSwan_blocks.2.column_transform.drop  | Dropout           | 0
+134 | model.cm_clf.DANSwan_blocks.2.dropout                | Dropout           | 0
+135 | model.cm_clf.DANSwan_blocks.2.shift                  | CircularShift     | 0
+136 | model.cm_clf.DANSwan_blocks.3                        | DANSwanBlock      | 346
+137 | model.cm_clf.DANSwan_blocks.3.prenorm                | Identity          | 0
+138 | model.cm_clf.DANSwan_blocks.3.norm                   | Identity          | 0
+139 | model.cm_clf.DANSwan_blocks.3.column_transform       | Mlp               | 346
+140 | model.cm_clf.DANSwan_blocks.3.column_transform.fc1   | Linear            | 176
+141 | model.cm_clf.DANSwan_blocks.3.column_transform.act   | GELU              | 0
+142 | model.cm_clf.DANSwan_blocks.3.column_transform.fc2   | Linear            | 170
+143 | model.cm_clf.DANSwan_blocks.3.column_transform.drop  | Dropout           | 0
+144 | model.cm_clf.DANSwan_blocks.3.dropout                | Dropout           | 0
+145 | model.cm_clf.DANSwan_blocks.3.shift                  | CircularShift     | 0
+146 | model.cm_clf.DANSwan_blocks.4                        | DANSwanBlock      | 346
+147 | model.cm_clf.DANSwan_blocks.4.prenorm                | Identity          | 0
+148 | model.cm_clf.DANSwan_blocks.4.norm                   | Identity          | 0
+149 | model.cm_clf.DANSwan_blocks.4.column_transform       | Mlp               | 346
+150 | model.cm_clf.DANSwan_blocks.4.column_transform.fc1   | Linear            | 176
+151 | model.cm_clf.DANSwan_blocks.4.column_transform.act   | GELU              | 0
+152 | model.cm_clf.DANSwan_blocks.4.column_transform.fc2   | Linear            | 170
+153 | model.cm_clf.DANSwan_blocks.4.column_transform.drop  | Dropout           | 0
+154 | model.cm_clf.DANSwan_blocks.4.dropout                | Dropout           | 0
+155 | model.cm_clf.DANSwan_blocks.4.shift                  | CircularShift     | 0
+156 | model.cm_clf.DANSwan_blocks.5                        | DANSwanBlock      | 346
+157 | model.cm_clf.DANSwan_blocks.5.prenorm                | Identity          | 0
+158 | model.cm_clf.DANSwan_blocks.5.norm                   | Identity          | 0
+159 | model.cm_clf.DANSwan_blocks.5.column_transform       | Mlp               | 346
+160 | model.cm_clf.DANSwan_blocks.5.column_transform.fc1   | Linear            | 176
+161 | model.cm_clf.DANSwan_blocks.5.column_transform.act   | GELU              | 0
+162 | model.cm_clf.DANSwan_blocks.5.column_transform.fc2   | Linear            | 170
+163 | model.cm_clf.DANSwan_blocks.5.column_transform.drop  | Dropout           | 0
+164 | model.cm_clf.DANSwan_blocks.5.dropout                | Dropout           | 0
+165 | model.cm_clf.DANSwan_blocks.5.shift                  | CircularShift     | 0
+166 | model.cm_clf.DANSwan_blocks.6                        | DANSwanBlock      | 346
+167 | model.cm_clf.DANSwan_blocks.6.prenorm                | Identity          | 0
+168 | model.cm_clf.DANSwan_blocks.6.norm                   | Identity          | 0
+169 | model.cm_clf.DANSwan_blocks.6.column_transform       | Mlp               | 346
+170 | model.cm_clf.DANSwan_blocks.6.column_transform.fc1   | Linear            | 176
+171 | model.cm_clf.DANSwan_blocks.6.column_transform.act   | GELU              | 0
+172 | model.cm_clf.DANSwan_blocks.6.column_transform.fc2   | Linear            | 170
+173 | model.cm_clf.DANSwan_blocks.6.column_transform.drop  | Dropout           | 0
+174 | model.cm_clf.DANSwan_blocks.6.dropout                | Dropout           | 0
+175 | model.cm_clf.DANSwan_blocks.6.shift                  | CircularShift     | 0
+176 | model.cm_clf.DANSwan_blocks.7                        | DANSwanBlock      | 346
+177 | model.cm_clf.DANSwan_blocks.7.prenorm                | Identity          | 0
+178 | model.cm_clf.DANSwan_blocks.7.norm                   | Identity          | 0
+179 | model.cm_clf.DANSwan_blocks.7.column_transform       | Mlp               | 346
+180 | model.cm_clf.DANSwan_blocks.7.column_transform.fc1   | Linear            | 176
+181 | model.cm_clf.DANSwan_blocks.7.column_transform.act   | GELU              | 0
+182 | model.cm_clf.DANSwan_blocks.7.column_transform.fc2   | Linear            | 170
+183 | model.cm_clf.DANSwan_blocks.7.column_transform.drop  | Dropout           | 0
+184 | model.cm_clf.DANSwan_blocks.7.dropout                | Dropout           | 0
+185 | model.cm_clf.DANSwan_blocks.7.shift                  | CircularShift     | 0
+186 | model.cm_clf.DANSwan_blocks.8                        | DANSwanBlock      | 346
+187 | model.cm_clf.DANSwan_blocks.8.prenorm                | Identity          | 0
+188 | model.cm_clf.DANSwan_blocks.8.norm                   | Identity          | 0
+189 | model.cm_clf.DANSwan_blocks.8.column_transform       | Mlp               | 346
+190 | model.cm_clf.DANSwan_blocks.8.column_transform.fc1   | Linear            | 176
+191 | model.cm_clf.DANSwan_blocks.8.column_transform.act   | GELU              | 0
+192 | model.cm_clf.DANSwan_blocks.8.column_transform.fc2   | Linear            | 170
+193 | model.cm_clf.DANSwan_blocks.8.column_transform.drop  | Dropout           | 0
+194 | model.cm_clf.DANSwan_blocks.8.dropout                | Dropout           | 0
+195 | model.cm_clf.DANSwan_blocks.8.shift                  | CircularShift     | 0
+196 | model.cm_clf.DANSwan_blocks.9                        | DANSwanBlock      | 346
+197 | model.cm_clf.DANSwan_blocks.9.prenorm                | Identity          | 0
+198 | model.cm_clf.DANSwan_blocks.9.norm                   | Identity          | 0
+199 | model.cm_clf.DANSwan_blocks.9.column_transform       | Mlp               | 346
+200 | model.cm_clf.DANSwan_blocks.9.column_transform.fc1   | Linear            | 176
+201 | model.cm_clf.DANSwan_blocks.9.column_transform.act   | GELU              | 0
+202 | model.cm_clf.DANSwan_blocks.9.column_transform.fc2   | Linear            | 170
+203 | model.cm_clf.DANSwan_blocks.9.column_transform.drop  | Dropout           | 0
+204 | model.cm_clf.DANSwan_blocks.9.dropout                | Dropout           | 0
+205 | model.cm_clf.DANSwan_blocks.9.shift                  | CircularShift     | 0
+206 | model.decoder                                        | Linear            | 539
+207 | loss                                                 | BCEWithLogitsLoss | 0
+---------------------------------------------------------------------------------------------
+7.5 K     Trainable params
+0         Non-trainable params
+7.5 K     Total params
+0.030     Total estimated model params size (MB)
+Num devices 1
+MANUAL Total steps 58740.0
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]
+/cluster/home/tonyu/.conda/envs/monica/lib/python3.9/site-packages/pytorch_lightning/trainer/call.py:48: UserWarning: Detected KeyboardInterrupt, attempting graceful shutdown...
+  rank_zero_warn("Detected KeyboardInterrupt, attempting graceful shutdown...")
+Epoch 0:   5%|▍         | 147/3059 [00:08<02:49, 17.13it/s, loss=0.697, v_num=prc6]

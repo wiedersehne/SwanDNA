@@ -1,0 +1,26 @@
+2023-08-13 14:46:32,691 INFO    MainThread:2230841 [wandb_setup.py:_flush():76] Configure stats pid to 2230841
+2023-08-13 14:46:32,692 INFO    MainThread:2230841 [wandb_setup.py:_flush():76] Loading settings from /cluster/home/tonyu/.config/wandb/settings
+2023-08-13 14:46:32,692 INFO    MainThread:2230841 [wandb_setup.py:_flush():76] Loading settings from /cluster/home/tonyu/VE_Pretraining/DNASWAN/wandb/settings
+2023-08-13 14:46:32,692 INFO    MainThread:2230841 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'_require_service': 'True'}
+2023-08-13 14:46:32,692 INFO    MainThread:2230841 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 've_classification.py', 'program': '/cluster/home/tonyu/VE_Pretraining/DNASWAN/ve_classification.py'}
+2023-08-13 14:46:32,692 INFO    MainThread:2230841 [wandb_init.py:_log_setup():461] Logging user logs to ./wandb/run-20230813_144632-3jzhzgzy/logs/debug.log
+2023-08-13 14:46:32,692 INFO    MainThread:2230841 [wandb_init.py:_log_setup():462] Logging internal logs to ./wandb/run-20230813_144632-3jzhzgzy/logs/debug-internal.log
+2023-08-13 14:46:32,693 INFO    MainThread:2230841 [wandb_init.py:init():495] calling init triggers
+2023-08-13 14:46:32,693 INFO    MainThread:2230841 [wandb_init.py:init():498] wandb.init called with sweep_config: {}
+config: {}
+2023-08-13 14:46:32,693 INFO    MainThread:2230841 [wandb_init.py:init():548] starting backend
+2023-08-13 14:46:32,693 INFO    MainThread:2230841 [wandb_init.py:init():552] setting up manager
+2023-08-13 14:46:32,697 INFO    MainThread:2230841 [backend.py:_multiprocessing_setup():97] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-08-13 14:46:32,704 INFO    MainThread:2230841 [wandb_init.py:init():558] backend started and connected
+2023-08-13 14:46:32,709 INFO    MainThread:2230841 [wandb_init.py:init():636] updated telemetry
+2023-08-13 14:46:32,742 INFO    MainThread:2230841 [wandb_init.py:init():667] communicating run to backend with 30 second timeout
+2023-08-13 14:46:33,561 INFO    MainThread:2230841 [wandb_run.py:_on_init():1981] communicating current version
+2023-08-13 14:46:33,655 INFO    MainThread:2230841 [wandb_run.py:_on_init():1985] got version response upgrade_message: "wandb version 0.15.8 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-08-13 14:46:33,655 INFO    MainThread:2230841 [wandb_init.py:init():700] starting run threads in backend
+2023-08-13 14:46:38,854 INFO    MainThread:2230841 [wandb_run.py:_console_start():1961] atexit reg
+2023-08-13 14:46:38,855 INFO    MainThread:2230841 [wandb_run.py:_redirect():1819] redirect: SettingsConsole.WRAP_RAW
+2023-08-13 14:46:38,855 INFO    MainThread:2230841 [wandb_run.py:_redirect():1884] Wrapping output streams.
+2023-08-13 14:46:38,855 INFO    MainThread:2230841 [wandb_run.py:_redirect():1906] Redirects installed.
+2023-08-13 14:46:38,856 INFO    MainThread:2230841 [wandb_init.py:init():732] run started, returning control to user process
+2023-08-13 14:46:43,735 INFO    MainThread:2230841 [wandb_run.py:_config_callback():1152] config_cb None None {'training/pretrained': True, 'training/batch_size': 32, 'training/n_warmup_steps': 50000, 'training/n_cycles': 0.5, 'training/weight_decay': 0.0003, 'training/learning_rate': 0.0003, 'training/save_every': 2500, 'training/n_epochs': 20, 'training/device': 'cuda', 'training/patience': -1, 'training/swa_lrs': -1, 'Deepsea/output_size': 49, 'Transformer/name': 'transformer', 'Transformer/dim_in': 5, 'Transformer/dim_out': 16, 'Transformer/clf_dim': 16, 'Transformer/layers': 1, 'Transformer/heads': 1, 'Transformer/max_len': 1000, 'Transformer/output_size': 49, 'Linformer/name': 'linformer', 'Linformer/dim_in': 5, 'Linformer/dim_out': 16, 'Linformer/clf_dim': 16, 'Linformer/layers': 2, 'Linformer/heads': 2, 'Linformer/max_len': 20000, 'Linformer/output_size': 49, 'Mega/name': 'mega', 'Mega/dim_in': 5, 'Mega/dim_out': 16, 'Mega/clf_dim': 16, 'Mega/layers': 2, 'Mega/heads': 2, 'Mega/max_len': 20000, 'Mega/output_size': 49, 'S4/name': 's4', 'S4/dim_in': 5, 'S4/dim_out': 16, 'S4/clf_dim': 16, 'S4/layers': 2, 'S4/heads': 2, 'S4/max_len': 20000, 'S4/output_size': 49, 'Nystromformer/name': 'nystromer', 'Nystromformer/dim_in': 5, 'Nystromformer/dim_out': 16, 'Nystromformer/clf_dim': 16, 'Nystromformer/layers': 2, 'Nystromformer/heads': 2, 'Nystromformer/max_len': 20000, 'Nystromformer/output_size': 49, 'DNASwan/input_size': 5, 'DNASwan/output_size': 49, 'DNASwan/embedding_size': 10, 'DNASwan/max_len': 1000, 'DNASwan/track_size': 1, 'DNASwan/hidden_size': 16, 'DNASwan/mlp_dropout': 0, 'DNASwan/layer_dropout': 0, 'DNASwan/prenorm': 'None', 'DNASwan/norm': 'None', 'DNASwan/coeff': 1}

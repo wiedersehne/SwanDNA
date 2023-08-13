@@ -4,7 +4,7 @@
 #SBATCH --account=share-ie-idi
 #SBATCH --time=120:00:00
 #SBATCH --nodes=1
-#SBATCH --mem=512000
+#SBATCH --mem=256000
 #SBATCH --ntasks-per-node=1
 #SBATCH --job-name="classification"
 #SBATCH --output=linformer.txt

@@ -1,0 +1,41 @@
+2023-08-13 14:40:30,686 INFO    StreamThr :2228916 [internal.py:wandb_internal():90] W&B internal server running at pid: 2228916, started at: 2023-08-13 14:40:30.684449
+2023-08-13 14:40:30,689 DEBUG   HandlerThread:2228916 [handler.py:handle_request():141] handle_request: status
+2023-08-13 14:40:30,690 DEBUG   SenderThread:2228916 [sender.py:send_request():316] send_request: status
+2023-08-13 14:40:30,693 DEBUG   SenderThread:2228916 [sender.py:send():302] send: header
+2023-08-13 14:40:30,693 DEBUG   SenderThread:2228916 [sender.py:send():302] send: run
+2023-08-13 14:40:30,694 INFO    WriterThread:2228916 [datastore.py:open_for_write():75] open: ./wandb/run-20230813_144030-gybmaqtu/run-gybmaqtu.wandb
+2023-08-13 14:40:30,696 INFO    SenderThread:2228916 [sender.py:_maybe_setup_resume():578] checking resume status for tonyu/VE_classification/gybmaqtu
+2023-08-13 14:40:31,473 DEBUG   HandlerThread:2228916 [handler.py:handle_request():141] handle_request: check_version
+2023-08-13 14:40:31,480 INFO    SenderThread:2228916 [dir_watcher.py:__init__():216] watching files in: ./wandb/run-20230813_144030-gybmaqtu/files
+2023-08-13 14:40:31,480 INFO    SenderThread:2228916 [sender.py:_start_run_threads():913] run started: gybmaqtu with start time 1691930430.655306
+2023-08-13 14:40:31,480 DEBUG   SenderThread:2228916 [sender.py:send():302] send: summary
+2023-08-13 14:40:31,481 INFO    SenderThread:2228916 [sender.py:_save_file():1156] saving file wandb-summary.json with policy end
+2023-08-13 14:40:31,482 DEBUG   SenderThread:2228916 [sender.py:send_request():316] send_request: check_version
+2023-08-13 14:40:31,574 DEBUG   HandlerThread:2228916 [handler.py:handle_request():141] handle_request: run_start
+2023-08-13 14:40:31,581 DEBUG   HandlerThread:2228916 [meta.py:__init__():35] meta init
+2023-08-13 14:40:31,581 DEBUG   HandlerThread:2228916 [meta.py:__init__():50] meta init done
+2023-08-13 14:40:31,581 DEBUG   HandlerThread:2228916 [meta.py:probe():216] probe
+2023-08-13 14:40:31,597 DEBUG   HandlerThread:2228916 [meta.py:_setup_git():206] setup git
+2023-08-13 14:40:31,622 DEBUG   HandlerThread:2228916 [meta.py:_setup_git():213] setup git done
+2023-08-13 14:40:31,622 DEBUG   HandlerThread:2228916 [meta.py:_save_pip():54] save pip
+2023-08-13 14:40:31,624 DEBUG   HandlerThread:2228916 [meta.py:_save_pip():68] save pip done
+2023-08-13 14:40:31,624 DEBUG   HandlerThread:2228916 [meta.py:_save_conda():75] save conda
+2023-08-13 14:40:32,506 INFO    Thread-12 :2228916 [dir_watcher.py:_on_file_created():275] file/dir created: ./wandb/run-20230813_144030-gybmaqtu/files/wandb-summary.json
+2023-08-13 14:40:32,507 INFO    Thread-12 :2228916 [dir_watcher.py:_on_file_created():275] file/dir created: ./wandb/run-20230813_144030-gybmaqtu/files/requirements.txt
+2023-08-13 14:40:32,507 INFO    Thread-12 :2228916 [dir_watcher.py:_on_file_created():275] file/dir created: ./wandb/run-20230813_144030-gybmaqtu/files/conda-environment.yaml
+2023-08-13 14:40:47,602 INFO    Thread-12 :2228916 [dir_watcher.py:_on_file_modified():292] file/dir modified: ./wandb/run-20230813_144030-gybmaqtu/files/conda-environment.yaml
+2023-08-13 14:40:48,078 DEBUG   HandlerThread:2228916 [meta.py:_save_conda():85] save conda done
+2023-08-13 14:40:48,079 DEBUG   HandlerThread:2228916 [meta.py:probe():254] probe done
+2023-08-13 14:40:48,604 INFO    Thread-12 :2228916 [dir_watcher.py:_on_file_created():275] file/dir created: ./wandb/run-20230813_144030-gybmaqtu/files/wandb-metadata.json
+2023-08-13 14:40:48,980 DEBUG   HandlerThread:2228916 [handler.py:handle_request():141] handle_request: stop_status
+2023-08-13 14:40:48,986 DEBUG   SenderThread:2228916 [sender.py:send_request():316] send_request: stop_status
+2023-08-13 14:40:49,329 DEBUG   SenderThread:2228916 [sender.py:send():302] send: telemetry
+2023-08-13 14:40:49,329 DEBUG   SenderThread:2228916 [sender.py:send():302] send: metric
+2023-08-13 14:40:49,329 DEBUG   SenderThread:2228916 [sender.py:send():302] send: telemetry
+2023-08-13 14:40:49,329 DEBUG   SenderThread:2228916 [sender.py:send():302] send: metric
+2023-08-13 14:40:49,329 WARNING SenderThread:2228916 [sender.py:send_metric():1112] Seen metric with glob (shouldn't happen)
+2023-08-13 14:40:49,401 DEBUG   SenderThread:2228916 [sender.py:send():302] send: config
+2023-08-13 14:40:49,402 DEBUG   SenderThread:2228916 [sender.py:send():302] send: files
+2023-08-13 14:40:49,403 INFO    SenderThread:2228916 [sender.py:_save_file():1156] saving file wandb-metadata.json with policy now
+2023-08-13 14:40:49,629 INFO    Thread-12 :2228916 [dir_watcher.py:_on_file_created():275] file/dir created: ./wandb/run-20230813_144030-gybmaqtu/files/output.log
+2023-08-13 14:40:50,127 INFO    Thread-16 :2228916 [upload_job.py:push():138] Uploaded file /tmp/tmp0b6a_j00wandb/6ygc97eo-wandb-metadata.json
