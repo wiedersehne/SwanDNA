@@ -187,7 +187,7 @@ def classify_main(cfg, m_name, plant, num_train, n_epochs):
         # save_dir = './pre_' + str(pre_seq_len) + '_tr' + str(cfg.Pretrain.pre_num * 7) + '/'
         save_dir = './Pretrained_models/'
         snapshot_path = save_dir + save_name
-        file_name = 'ft_' + file_name + '_pre' + str(pre_seq_len) + '_E' + str(cfg.training.pre_load)
+        file_name = "DNASwan_plant_72_192.pt"
     else:
         snapshot_path = None
 
