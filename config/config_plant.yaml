@@ -15,7 +15,7 @@ DNASwan:
   input_size: 4
   embedding_size: 44
   n_layer: 10
-  track_size: 4
+  group_size: 4
   hidden_size: 64
   mlp_dropout: 0.02
   layer_dropout: 0.02
