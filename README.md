@@ -23,7 +23,7 @@
 3. Run **run.sh** in `./data/plant_generate/` to save data. The sequence length is required.
 4. Run **pretraining.py** with the generated data. Configurations of different lengths shall be changed accordingly in **config_plant.yaml**.
 ### To fine-tune a pretrained model, you need to:
-1. Run **run.sh** in `./data/plant_generate/` to save data. The plant name is required.
+1. Run **run.sh** in `./data/plant_generate/` to generate data. The plant name is required.
 2. Run **plant_classification.py** to load the pretrained model under the folder `./Pretrained_models/` and train DNASwan.
 
 ### Experimental Results
