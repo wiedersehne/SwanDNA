@@ -16,6 +16,20 @@ class vcf_Dataset(Dataset):
         return len(self.label)
 
 
+class plant_Dataset(Dataset):
+    def __init__(self, data, labels):
+        self.data = data
+        self.labels = labels
+
+    def __getitem__(self, index):
+        X = self.data[index]
+        Y = self.labels[index]
+        return X, Y
+
+    def __len__(self):
+        return len(self.labels)
+
+
 class gb_Dataset(Dataset):
     def __init__(self, seq, label):
         self.X, self.y = seq, label
