@@ -215,7 +215,7 @@ def classify_main(cfg, m_name, plant, num_train, n_epochs):
     summary = ModelSummary(model, max_depth=2)
     print(summary)
 
-    wandb_logger = WandbLogger(dir="./wandb/", project=plant + str(num_train), entity='leic-no', name=f'{file_name}')
+    wandb_logger = WandbLogger(dir="./wandb/", project=plant + str(num_train), entity='', name=f'{file_name}')
     # checkpoint_callback = ModelCheckpoint(monitor="val_roc", mode="max", save_top_k=1)
     checkpoint_callback = ModelCheckpoint(monitor="val_roc", mode="max")
 

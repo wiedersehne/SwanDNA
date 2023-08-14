@@ -47,7 +47,7 @@ class LightningWrapper(pl.LightningModule):
     def __init__(self, model, cfg, snapshot_path, train_set, val_set, loss):
         super().__init__()
         self.save_hyperparameters(cfg)
-        self.model_config = self.hparams.Chordmixer
+        self.model_config = self.hparams.DNASwan
         self.batch_size = self.hparams.training.batch_size
         self.length = self.hparams.training.max_len
         self.dim = self.model_config.embedding_size
@@ -185,7 +185,7 @@ def pretrain_main(cfg):
     model = LightningWrapper(Model4Pretrain, cfg.Pretraining, snapshot_path, train_set, val_set, loss)
     print(model)
     summary = ModelSummary(model, max_depth=-1)
-    wandb_logger = WandbLogger(dir="./wandb/", project="CM_VE_Pretrain", entity='tonyu', name=f'Pretraining_{cfg.Pretraining.training.max_len}_{cfg.Pretraining.Chordmixer.embedding_size}_{cfg.Pretraining.Chordmixer.hidden_size}')
+    wandb_logger = WandbLogger(dir="./wandb/", project="VE_Pretrain", entity='', name=f'Pretraining_{cfg.Pretraining.training.max_len}_{cfg.Pretraining.DNASwan.embedding_size}_{cfg.Pretraining.DNASwan.hidden_size}')
     checkpoint_callback = ModelCheckpoint(monitor="val_loss", mode="min")
 
     lr_monitor = LearningRateMonitor(logging_interval='step')

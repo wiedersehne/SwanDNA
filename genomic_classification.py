@@ -189,7 +189,7 @@ def classify_main(cfg, task):
     4. init trainer
     """
 
-    wandb_logger = WandbLogger(dir="./wandb/", project="Human_promoter", entity='tonyu', name=f'{pretrained_model}_{length}_{pretrained}')
+    wandb_logger = WandbLogger(dir="./wandb/", project="Human_promoter", entity='', name=f'{pretrained_model}_{length}_{pretrained}')
     checkpoint_callback = ModelCheckpoint(monitor="val_acc", mode="max")
 
     lr_monitor = LearningRateMonitor(logging_interval='step')

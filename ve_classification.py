@@ -192,7 +192,7 @@ def classify_main(cfg):
     # init trainer
     # ------------
 
-    wandb_logger = WandbLogger(dir="./wandb/", project="VE_classification", entity='tonyu', name=f'{file_name}_{length}_{pretrained}')
+    wandb_logger = WandbLogger(dir="./wandb/", project="VE_classification", entity='', name=f'{file_name}_{length}_{pretrained}')
     checkpoint_callback = ModelCheckpoint(monitor="val_auroc", mode="max")
 
     print(len(train_set), len(val_set))
