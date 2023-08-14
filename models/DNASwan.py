@@ -436,7 +436,6 @@ class Plant_Classifier(nn.Module):
                  output_size=None,
                  ):
         super().__init__()
-        embedding_size = embedding_size
 
         self.embedding = nn.Linear(
                 input_size,
