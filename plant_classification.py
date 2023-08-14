@@ -28,7 +28,7 @@ class LightningWrapper(pl.LightningModule):
         length = 1000  # cfg.training.length
         
         if m_name == 'swan':
-            self.model_config = self.hparams.Chordmixer
+            self.model_config = self.hparams.DNASwan
             self.model = model(**self.model_config, output_size=n_feature)
         elif m_name == 'deepsea':
             self.model = model(sequence_length=length, n_targets=n_feature)
