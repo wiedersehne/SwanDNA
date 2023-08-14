@@ -213,6 +213,6 @@ def pretrain_main(cfg):
 
 
 if __name__ == "__main__":
-    cfg = OmegaConf.load('./config/config_gb.yaml')
+    cfg = OmegaConf.load('./config/config_gb.yaml') #for ve pretraining, chenge it to config.yaml
     OmegaConf.set_struct(cfg, False)
     pretrain_main(cfg)
