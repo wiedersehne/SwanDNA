@@ -139,7 +139,6 @@ class DANSwanBlock(nn.Module):
         layer_dropout (float): The dropout probability for the DANSwanBlock.
         prenorm (str): The type of normalization for the pre-normalization step.
         norm (str): The type of normalization for the post-normalization step.
-        var_len (bool): Whether to use variable-length input sequences.
     """
 
     def __init__(
@@ -192,7 +191,6 @@ class DANSwanEncoder(nn.Module):
         layer_dropout (float): The dropout probability for the DANSwanBlock.
         prenorm (str): The type of normalization for the pre-normalization step.
         norm (str): The type of normalization for the post-normalization step.
-        var_len (bool): Whether to use variable-length input sequences.
     """
     def __init__(
         self,
@@ -238,7 +236,6 @@ class Classifier(nn.Module):
     Args:
         input_size (int): The input size of the embedding layer.
         output_size (int): The output size of the decoder layer.
-        embedding_type (str): The type of embedding layer ('sparse' or 'linear').
         decoder (str): The type of decoder layer. We use 'linear'.
         max_len (int): The maximum sequence length in the data.
         group_size (int): The size of groups to be shifted.
@@ -247,7 +244,6 @@ class Classifier(nn.Module):
         layer_dropout (float): The dropout probability for the DANSwanBlock.
         prenorm (str): The type of normalization for the pre-normalization step.
         norm (str): The type of normalization for the post-normalization step.
-        var_len (bool, optional): Whether to use variable-length mode.
     """
     def __init__(self,
         input_size,
@@ -331,8 +327,6 @@ class GB_Classifier(nn.Module):
     Args:
         input_size (int): The input size of the embedding layer.
         output_size (int): The output size of the decoder layer.
-        embedding_type (str): The type of embedding layer ('sparse' or 'linear').
-        decoder (str): The type of decoder layer. We use 'linear'.
         max_len (int): The maximum sequence length in the data.
         group_size (int): The size of groups to be shifted.
         hidden_size (int): The hidden layer size for the MLPs.
@@ -340,7 +334,6 @@ class GB_Classifier(nn.Module):
         layer_dropout (float): The dropout probability for the DANSwanBlock.
         prenorm (str): The type of normalization for the pre-normalization step.
         norm (str): The type of normalization for the post-normalization step.
-        var_len (bool, optional): Whether to use variable-length mode.
     """
     def __init__(self,
         input_size,
@@ -415,13 +408,26 @@ class GB_Classifier(nn.Module):
         x = self.decoder(x)
         return x
 
+
 class Plant_Classifier(nn.Module):
+    """
+    The DANSwan model. Encoder is a stack of DANSwan blocks. Decoder a global average pooling, followed by a linear layer.
+
+    Args:
+        input_size (int): The input size of the embedding layer.
+        output_size (int): The output size of the decoder layer.
+        group_size (int): The size of groups to be shifted.
+        hidden_size (int): The hidden layer size for the MLPs.
+        mlp_dropout (float): The dropout probability for the MLPs.
+        layer_dropout (float): The dropout probability for the DANSwanBlock.
+        prenorm (str): The type of normalization for the pre-normalization step.
+        norm (str): The type of normalization for the post-normalization step.
+    """
     def __init__(self,
-                 # max_len,
                  embedding_size,
                  n_layer,
                  hidden_size,
-                 track_size,
+                 group_size,
                  input_size=4,
                  mlp_dropout=0.02,
                  layer_dropout=0.02,
@@ -430,9 +436,7 @@ class Plant_Classifier(nn.Module):
                  output_size=None,
                  ):
         super().__init__()
-        # n_layer = math.ceil(np.log2(max_seq_len))
-        # embedding_size = int((math.ceil(np.log2(max_seq_len)) + 1) * track_size)
-        embedding_size = embedding_size  # int((math.ceil(np.log2(max_seq_len)) + 1) * track_size)
+        embedding_size = embedding_size
 
         self.embedding = nn.Linear(
                 input_size,
@@ -442,7 +446,7 @@ class Plant_Classifier(nn.Module):
         self.encoder = DANSwanEncoder(
             n_layer,
             embedding_size,
-            track_size,
+            group_size,
             hidden_size,
             mlp_dropout,
             layer_dropout,
@@ -453,7 +457,7 @@ class Plant_Classifier(nn.Module):
         self.cm_clf = DANSwanEncoder(
             n_layer,
             embedding_size,
-            track_size,
+            group_size,
             hidden_size,
             mlp_dropout,
             layer_dropout,
