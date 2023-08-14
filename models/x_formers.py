@@ -6,7 +6,7 @@ from torch.nn import TransformerEncoder, TransformerEncoderLayer
 from nystrom_attention import Nystromformer
 from flash_attn.flash_attention import FlashMHA
 from mega_pytorch import MegaLayer
-from other_models.S4_model import S4Model
+from Other_models.S4_model import S4Model
 
 class PositionalEncoding(nn.Module):
     def __init__(self, d_model, max_len, dropout: float = 0.1):
