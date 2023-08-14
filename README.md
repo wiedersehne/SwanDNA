@@ -5,7 +5,7 @@
 2. Run **generate_pretrain_human.py**. Sequence length [1k, 5k, 10k, 20k] and numbers(200k) are required. You need to load two data files, **hg38.fa and chromosomes.csv** for this task.
 3. Run **pretraining.py** with the generated data. Configurations of different lengths shall be changed accordingly in config.yaml.
 ### To fine-tune a pretrained model, you need to:
-1. Run **generate_ve_data.py** to save data. Sequence lengths is required. A total of 97,922 sequence will be extracted. **ve_df.csv** needs to be loaded.
+1. Run **generate_ve_data.py** to save data. The sequence length is required. A total of 97,922 sequence will be extracted. **ve_df.csv** needs to be loaded.
 2. Run **ve_classification.py** to load the pretrained model under the folder "Pretrained_models" and train DNASwan.
 ### Experimental Results
 
@@ -17,6 +17,14 @@
 | 20kbp   | **71.90**   |          | /       | 50.00         | 50.00     | /           | 50.01 | 52.21 |
 
 ## OCRs prediciton in plants.
+### To pretrain a model you need to follow the steps:
+1. Download reference genome files from https://plantdeepsea-toturial2.readthedocs.io/en/latest/08-Statistics.html
+2. Run **plant_download.ipynb** in `./data/plant_data/`to download training data.
+3. Run **run.sh** in `./data/plant_generate/` to save data. The sequence length is required.
+4. Run **pretraining.py** with the generated data. Configurations of different lengths shall be changed accordingly in config_plant.yaml.
+### To fine-tune a pretrained model, you need to:
+1. Run **run.sh** in `./data/plant_generate/` to save data. The plant name is required.
+2. Run **plant_classification.py** to load the pretrained model under the folder "Pretrained_models" and train DNASwan.
 
 ### Experimental Results
 | Plant               | A.thaliana | B.distachyon | O.sativa-MH | O.sativa-ZS | S.bicolor | S.italica | Z.mays |
@@ -38,7 +46,7 @@
 ### To pretrain a model you need to follow the steps:
 1. Download GRCH38 from http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz. (3.1G)
 2. Run **generate_pretrain_human.py**. Sequence length (100k) and numbers (200k) are required.
-3. Run **pretraining.py** with the generated data. Configurations of different lengths shall be changed accordingly in config.yaml.
+3. Run **pretraining.py** with the generated data. Configurations of different lengths shall be changed accordingly in config_gb.yaml.
 The hyperparameters of pretraining is in supplementaty document.
 ### To fine-tune a pretrained model and conduct classification of GenomicBenchmarks, you need to:
 1. run **genomic_benchmark.py** to download the datasets. You need to install the bechmark using ```pip install genomic-benchmarks```. The details of the datasets are shown in the table below. More details can be found in their github, https://github.com/ML-Bioinfo-CEITEC/genomic_benchmarks.
