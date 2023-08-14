@@ -16,7 +16,7 @@ Pretraining:
     input_size: 5
     embedding_size: 10
     max_len: 1000
-    track_size: 1
+    group_size: 1
     hidden_size: 16
     mlp_dropout: 0
     layer_dropout: 0
@@ -87,7 +87,7 @@ Fine_tuning:
     output_size: 49
     embedding_size: 10
     max_len: 1000
-    track_size: 1
+    group_size: 1
     hidden_size: 16
     mlp_dropout: 0
     layer_dropout: 0

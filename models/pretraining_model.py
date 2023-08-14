@@ -8,10 +8,10 @@ class Model4Pretrain(nn.Module):
     DNASwan Model for Pretrain : Masked LM
     With one DNASwan encoder and one DNASwan decoder.
     """
-    def __init__(self, input_size, max_len, embedding_size, track_size, hidden_size, mlp_dropout, layer_dropout, prenorm, norm):
+    def __init__(self, input_size, max_len, embedding_size, group_size, hidden_size, mlp_dropout, layer_dropout, prenorm, norm):
         super().__init__()
         self.max_n_layers = math.ceil(np.log2(max_len))
-        self.embedding_size = (self.max_n_layers+1) * track_size
+        self.embedding_size = (self.max_n_layers+1) * group_size
         self.embedding = nn.Linear(
                     input_size,
                     self.embedding_size
@@ -19,7 +19,7 @@ class Model4Pretrain(nn.Module):
         self.encoder = DNASwanEncoder(
                 max_len,
                 self.embedding_size,
-                track_size,
+                group_size,
                 hidden_size,
                 mlp_dropout,
                 layer_dropout,
@@ -29,7 +29,7 @@ class Model4Pretrain(nn.Module):
         self.decoder = DNASwanEncoder(
                 max_len,
                 self.embedding_size,
-                track_size,
+                group_size,
                 hidden_size,
                 mlp_dropout,
                 layer_dropout,

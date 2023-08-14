@@ -69,14 +69,14 @@ class GroupNorm(nn.Module):
         return x
 
 
-def map_norm(norm_type, embedding_size, track_size=None):
+def map_norm(norm_type, embedding_size, group_size=None):
     """
     Maps the given normalization type to the corresponding PyTorch module.
 
     Args:
         norm_type (str): The normalization type ('LN', 'BN', 'GN', or None).
         embedding_size (int): The size of the token embeddings.
-        track_size (int, optional): The number of groups for Group Normalization.
+        group_size (int, optional): The number of groups for Group Normalization.
 
     Returns:
         nn.Module: The corresponding normalization module.
@@ -86,7 +86,7 @@ def map_norm(norm_type, embedding_size, track_size=None):
     elif norm_type == 'BN':
         norm = BatchNorm(embedding_size)
     elif norm_type == 'GN':
-        norm = GroupNorm(embedding_size, track_size)
+        norm = GroupNorm(embedding_size, group_size)
     elif norm_type == 'None':
         norm = nn.Identity()
     return norm
@@ -94,27 +94,27 @@ def map_norm(norm_type, embedding_size, track_size=None):
 
 class CircularShift(nn.Module):
     """
-    A PyTorch module that performs a parameter-free shift of tracks within token embeddings.
+    A PyTorch module that performs a parameter-free shift of groups within token embeddings.
 
     This module can be used to augment or modify the input data in a data-driven manner. The shift is
     performed jointly for all sequences in a batch and is based on powers of 2.
 
     Args:
-        track_size (int): The size of tracks to be shifted.
+        group_size (int): The size of groups to be shifted.
     """
-    def __init__(self, track_size):
+    def __init__(self, group_size):
         super().__init__()
-        self.track_size = track_size
+        self.group_size = group_size
 
     def forward(self, x):
         y = torch.split(
             tensor=x,
-            split_size_or_sections=self.track_size,
+            split_size_or_sections=self.group_size,
             dim=-1
         )
 
         # Roll sequences in a batch jointly
-        # The first track remains unchanged
+        # The first group remains unchanged
         z = [y[0]]
         for i in range(1, len(y)):
             offset = - 2 ** (i - 1)
@@ -133,7 +133,7 @@ class DANSwanBlock(nn.Module):
 
     Args:
         embedding_size (int): The size of the token embeddings.
-        track_size (int): The size of tracks to be shifted.
+        group_size (int): The size of groups to be shifted.
         hidden_size (int): The hidden layer size for the MLP.
         mlp_dropout (float): The dropout probability for the MLP.
         layer_dropout (float): The dropout probability for the DANSwanBlock.
@@ -145,7 +145,7 @@ class DANSwanBlock(nn.Module):
     def __init__(
         self,
         embedding_size,
-        track_size,
+        group_size,
         hidden_size,
         mlp_dropout,
         layer_dropout,
@@ -153,8 +153,8 @@ class DANSwanBlock(nn.Module):
         norm
     ):
         super().__init__()
-        self.prenorm = map_norm(prenorm, embedding_size, track_size)
-        self.norm = map_norm(norm, embedding_size, track_size)
+        self.prenorm = map_norm(prenorm, embedding_size, group_size)
+        self.norm = map_norm(norm, embedding_size, group_size)
 
         self.column_transform = Mlp(
             embedding_size,
@@ -165,7 +165,7 @@ class DANSwanBlock(nn.Module):
         )
 
         self.dropout = nn.Dropout(layer_dropout)
-        self.shift = CircularShift(track_size)
+        self.shift = CircularShift(group_size)
 
     def forward(self, x):
         res_con = x
@@ -186,7 +186,7 @@ class DANSwanEncoder(nn.Module):
 
     Args:
         max_len (int): The maximum sequence length of the input tensor.
-        track_size (int): The size of tracks to be shifted.
+        group_size (int): The size of groups to be shifted.
         hidden_size (int): The hidden layer size for the MLP.
         mlp_dropout (float): The dropout probability for the MLP.
         layer_dropout (float): The dropout probability for the DANSwanBlock.
@@ -198,7 +198,7 @@ class DANSwanEncoder(nn.Module):
         self,
         max_len,
         embedding_size,
-        track_size,
+        group_size,
         hidden_size,
         mlp_dropout,
         layer_dropout,
@@ -212,7 +212,7 @@ class DANSwanEncoder(nn.Module):
             [
                 DANSwanBlock(
                     embedding_size,
-                    track_size,
+                    group_size,
                     hidden_size,
                     mlp_dropout,
                     layer_dropout,
@@ -241,7 +241,7 @@ class Classifier(nn.Module):
         embedding_type (str): The type of embedding layer ('sparse' or 'linear').
         decoder (str): The type of decoder layer. We use 'linear'.
         max_len (int): The maximum sequence length in the data.
-        track_size (int): The size of tracks to be shifted.
+        group_size (int): The size of groups to be shifted.
         hidden_size (int): The hidden layer size for the MLPs.
         mlp_dropout (float): The dropout probability for the MLPs.
         layer_dropout (float): The dropout probability for the DANSwanBlock.
@@ -254,7 +254,7 @@ class Classifier(nn.Module):
         output_size,
         max_len,
         embedding_size,
-        track_size,
+        group_size,
         hidden_size,
         mlp_dropout,
         layer_dropout,
@@ -272,7 +272,7 @@ class Classifier(nn.Module):
             self.encoder = DANSwanEncoder(
                 max_len,
                 embedding_size,
-                track_size,
+                group_size,
                 hidden_size,
                 mlp_dropout,
                 layer_dropout,
@@ -283,14 +283,13 @@ class Classifier(nn.Module):
             self.cm_clf = DANSwanEncoder(
                 max_len,
                 embedding_size,
-                track_size,
+                group_size,
                 int(hidden_size*coeff),
                 mlp_dropout,
                 layer_dropout,
                 prenorm,
                 norm
             ).apply(self._init_weights)
-
             self.decoder = nn.Linear(embedding_size, output_size)
 
     def _init_weights(self, module):
@@ -335,7 +334,7 @@ class GB_Classifier(nn.Module):
         embedding_type (str): The type of embedding layer ('sparse' or 'linear').
         decoder (str): The type of decoder layer. We use 'linear'.
         max_len (int): The maximum sequence length in the data.
-        track_size (int): The size of tracks to be shifted.
+        group_size (int): The size of groups to be shifted.
         hidden_size (int): The hidden layer size for the MLPs.
         mlp_dropout (float): The dropout probability for the MLPs.
         layer_dropout (float): The dropout probability for the DANSwanBlock.
@@ -348,7 +347,7 @@ class GB_Classifier(nn.Module):
         output_size,
         max_len,
         embedding_size,
-        track_size,
+        group_size,
         hidden_size,
         mlp_dropout,
         layer_dropout,
@@ -358,7 +357,7 @@ class GB_Classifier(nn.Module):
         ):
             super().__init__()
             self.max_n_layers = math.ceil(np.log2(max_len))
-            self.track_size = track_size
+            self.group_size = group_size
             self.embedding_size = embedding_size
             self.embedding = nn.Linear(
                     input_size,
@@ -368,7 +367,7 @@ class GB_Classifier(nn.Module):
             self.encoder = DANSwanEncoder(
                 max_len,
                 self.embedding_size,
-                track_size,
+                group_size,
                 hidden_size,
                 mlp_dropout,
                 layer_dropout,
@@ -379,7 +378,7 @@ class GB_Classifier(nn.Module):
             self.cm_clf = DANSwanEncoder(
                 max_len,
                 self.embedding_size,
-                track_size,
+                group_size,
                 int(hidden_size*coeff),
                 mlp_dropout,
                 layer_dropout,

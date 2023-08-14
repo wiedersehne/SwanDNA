@@ -16,7 +16,7 @@ Pretraining:
     input_size: 5
     embedding_size: 144
     max_len: 100000
-    track_size: 8
+    group_size: 8
     hidden_size: 256
     mlp_dropout: 0
     layer_dropout: 0
@@ -40,7 +40,7 @@ Human_Promoter:
     output_size: 2
     embedding_size: 144
     max_len: 251
-    track_size: 24
+    group_size: 24
     hidden_size: 256
     mlp_dropout: 0
     layer_dropout: 0
@@ -65,7 +65,7 @@ Human_Enhancers_Cohn:
     output_size: 2
     embedding_size: 144
     max_len: 500
-    track_size: 24
+    group_size: 24
     hidden_size: 256
     mlp_dropout: 0
     layer_dropout: 0
@@ -90,7 +90,7 @@ Demo_Human_Or_Worm:
     output_size: 2
     embedding_size: 144
     max_len: 100
-    track_size: 24
+    group_size: 24
     hidden_size: 256
     mlp_dropout: 0
     layer_dropout: 0
@@ -115,7 +115,7 @@ Demo_Mouse_Enhancers:
     output_size: 2
     embedding_size: 144
     max_len: 4776
-    track_size: 16
+    group_size: 16
     hidden_size: 256
     mlp_dropout: 0
     layer_dropout: 0
@@ -140,7 +140,7 @@ Demo_Coding_Inter:
     output_size: 2
     embedding_size: 144
     max_len: 200
-    track_size: 24
+    group_size: 24
     hidden_size: 256
     mlp_dropout: 0
     layer_dropout: 0
@@ -165,7 +165,7 @@ Human_Enhancers_Ensembl:
     output_size: 2
     embedding_size: 144
     max_len: 573
-    track_size: 16
+    group_size: 16
     hidden_size: 256
     mlp_dropout: 0
     layer_dropout: 0
@@ -190,7 +190,7 @@ Human_Regulatory:
     output_size: 3
     embedding_size: 144
     max_len: 802
-    track_size: 18
+    group_size: 18
     hidden_size: 256
     mlp_dropout: 0
     layer_dropout: 0
@@ -215,7 +215,7 @@ Human_Ocr_Ensembl:
     output_size: 2
     embedding_size: 72
     max_len: 593
-    track_size: 12
+    group_size: 12
     hidden_size: 256
     mlp_dropout: 0
     layer_dropout: 0
