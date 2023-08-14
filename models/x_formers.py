@@ -147,3 +147,19 @@ class FormerClassifier(nn.Module):
         idx_linear = idx_linear.unsqueeze(0).t()
         y = torch.gather(y, 1, idx_linear)
         return y
+
+
+class Plant_FormerClassifier(nn.Module):
+    def __init__(self, name, layers, heads, dim_in, dim_out, clf_dim, max_seq_len, output_size):
+        super().__init__()
+
+        self.encoder = XFormer(name, True, dim_in, dim_out, depth=layers, heads=heads, seq_len=max_seq_len)
+        self.Net2 = XFormer(name, False, dim_out, clf_dim, depth=layers, heads=heads, seq_len=max_seq_len)
+        self.linear = nn.Linear(clf_dim, output_size).half()
+
+    def forward(self, seq):
+        en = self.encoder(seq)
+        de = self.Net2(en)
+        y_center = de[:, 400:600, :]
+        y = self.linear(torch.mean(y_center, dim=1))
+        return y
