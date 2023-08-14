@@ -414,3 +414,72 @@ class GB_Classifier(nn.Module):
         x = torch.mean(x, dim=1)
         x = self.decoder(x)
         return x
+
+class Plant_Classifier(nn.Module):
+    def __init__(self,
+                 # max_len,
+                 embedding_size,
+                 n_layer,
+                 hidden_size,
+                 track_size,
+                 input_size=4,
+                 mlp_dropout=0.02,
+                 layer_dropout=0.02,
+                 prenorm="None",
+                 norm="None",
+                 output_size=None,
+                 ):
+        super().__init__()
+        # n_layer = math.ceil(np.log2(max_seq_len))
+        # embedding_size = int((math.ceil(np.log2(max_seq_len)) + 1) * track_size)
+        embedding_size = embedding_size  # int((math.ceil(np.log2(max_seq_len)) + 1) * track_size)
+
+        self.embedding = nn.Linear(
+                input_size,
+                embedding_size
+        ).apply(self._init_weights)
+
+        self.encoder = DANSwanEncoder(
+            n_layer,
+            embedding_size,
+            track_size,
+            hidden_size,
+            mlp_dropout,
+            layer_dropout,
+            prenorm,
+            norm
+        ).apply(self._init_weights)
+
+        self.cm_clf = DANSwanEncoder(
+            n_layer,
+            embedding_size,
+            track_size,
+            hidden_size,
+            mlp_dropout,
+            layer_dropout,
+            prenorm,
+            norm
+        ).apply(self._init_weights)
+
+        self.linear = nn.Linear(embedding_size, output_size)
+
+    def _init_weights(self, module):
+        if isinstance(module, nn.Linear):
+            torch.nn.init.xavier_uniform_(module.weight)
+            if module.bias is not None:
+                module.bias.data.zero_()
+        elif isinstance(module, nn.Embedding):
+            module.weight.data.normal_(mean=0.0, std=1.0)
+            if module.padding_idx is not None:
+                module.weight.data[module.padding_idx].zero_()
+        elif isinstance(module, nn.LayerNorm):
+            module.bias.data.zero_()
+            module.weight.data.fill_(1.0)
+
+    def forward(self, seq):     # N,L,C
+        x = self.embedding(seq)
+        en = self.encoder(x)
+        de = self.cm_clf(en)
+        y_center = de[:, 400:600, :]
+        y = self.linear(torch.mean(y_center, dim=1))
+        return y
