@@ -129,7 +129,7 @@ class LightningWrapper(pl.LightningModule):
         )
         lr_scheduler = get_cosine_schedule_with_warmup(
                     optimizer,
-                    num_warmup_steps=int(self.total_steps()*0.4),
+                    num_warmup_steps=int(self.total_steps()*0.4), #hyperparmeter [0.3, 0.4] 
                     num_training_steps=self.total_steps(),
                     num_cycles=self.hparams.training.n_cycles
         )
