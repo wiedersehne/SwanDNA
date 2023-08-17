@@ -4,7 +4,7 @@ from omegaconf import OmegaConf
 from functools import lru_cache
 from torch.utils.data import DataLoader
 from torchmetrics import Accuracy
-from models.DNASwan import GB_Classifier
+from models.SwanDNA import GB_Classifier
 from data_utils import gb_Dataset
 import pytorch_lightning as pl
 from transformers import get_cosine_schedule_with_warmup
@@ -19,10 +19,10 @@ class LightningWrapper(pl.LightningModule):
     def __init__(self, model, cfg, train_set, val_set, pretrained, loss, file_name):
         super().__init__()
         self.save_hyperparameters(cfg)
-        self.model_config = self.hparams.DNASwan
+        self.model_config = self.hparams.SwanDNA
         self.batch_size = self.hparams.training.batch_size
-        self.output = self.hparams.DNASwan.output_size
-        self.length = self.hparams.DNASwan.max_len
+        self.output = self.hparams.SwanDNA.output_size
+        self.length = self.hparams.SwanDNA.max_len
         self.model = model(**self.model_config)
         self.save_every = self.hparams.training.save_every
         self.train_set = train_set
@@ -164,7 +164,7 @@ def classify_main(cfg, task):
     """
 
     pretrained = config.training.pretrained
-    length = config.DNASwan.max_len
+    length = config.SwanDNA.max_len
     loss = nn.CrossEntropyLoss(reduction='mean')
 
     train_X = torch.load(f"./data/{task}_X_train.pt")
@@ -180,7 +180,7 @@ def classify_main(cfg, task):
     """
 
     ddp = DDPStrategy(process_group_backend="nccl", find_unused_parameters=True)
-    pretrained_model = "DNASwan_GRCH38_100000_144_256.pt"
+    pretrained_model = "SwanDNA_GRCH38_100000_144_256.pt"
 
     model = LightningWrapper(GB_Classifier, config, train_set, val_set, pretrained, loss, pretrained_model)
     summary = ModelSummary(model, max_depth=-1)

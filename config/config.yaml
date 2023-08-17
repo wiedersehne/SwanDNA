@@ -12,7 +12,7 @@ Pretraining:
     weight_decay: 0.0003
     learning_rate: 0.0003
     save_every: 2500
-  DNASwan:
+  SwanDNA:
     input_size: 5
     embedding_size: 10
     max_len: 1000
@@ -82,7 +82,7 @@ Fine_tuning:
     heads: 2
     max_len: 20000
     output_size: 49
-  DNASwan:
+  SwanDNA:
     input_size: 5
     output_size: 49
     embedding_size: 10

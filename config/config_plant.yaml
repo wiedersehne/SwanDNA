@@ -11,7 +11,7 @@ training:
   learning_rate: 0.001
   weight_decay: 0.0003
   warm: 0.1
-DNASwan:
+SwanDNA:
   input_size: 4
   embedding_size: 44
   n_layer: 10

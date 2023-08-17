@@ -15,7 +15,7 @@ from pytorch_lightning.callbacks import ModelCheckpoint, LearningRateMonitor, TQ
 
 from data_utils import plant_Dataset
 from data.plant_generate.plants import plant_feature, plant_bed
-from models.DNASwan import Plant_Classifier
+from models.SwanDNA import Plant_Classifier
 from models.deeperdeepsea import DeeperDeepSEA
 from models.x_formers import FormerClassifier
 
@@ -28,7 +28,7 @@ class LightningWrapper(pl.LightningModule):
         length = 1000  # cfg.training.length
         
         if m_name == 'swan':
-            self.model_config = self.hparams.DNASwan
+            self.model_config = self.hparams.SwanDNA
             self.model = model(**self.model_config, output_size=n_feature)
         elif m_name == 'deepsea':
             self.model = model(sequence_length=length, n_targets=n_feature)
@@ -174,7 +174,7 @@ def classify_main(cfg, m_name, plant, num_train, n_epochs):
     pre_seq_len = cfg.Pretrain.pre_seq_len
 
     if m_name == 'swan':
-        save_name = 'DNASwan_plant_L' + str(pre_seq_len)
+        save_name = 'SwanDNA_plant_L' + str(pre_seq_len)
         this_model = Plant_Classifier
     else:
         save_name = None
@@ -187,7 +187,7 @@ def classify_main(cfg, m_name, plant, num_train, n_epochs):
         # save_dir = './pre_' + str(pre_seq_len) + '_tr' + str(cfg.Pretrain.pre_num * 7) + '/'
         save_dir = './Pretrained_models/'
         snapshot_path = save_dir + save_name
-        file_name = "DNASwan_plant_72_192.pt"
+        file_name = "SwanDNA_plant_72_192.pt"
     else:
         snapshot_path = None
 

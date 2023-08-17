@@ -12,7 +12,7 @@ Pretraining:
     weight_decay: 0.1
     learning_rate: 0.0003
     save_every: 2000
-  DNASwan:
+  SwanDNA:
     input_size: 5
     embedding_size: 144
     max_len: 100000
@@ -35,7 +35,7 @@ Human_Promoter:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  DNASwan:
+  SwanDNA:
     input_size: 5
     output_size: 2
     embedding_size: 144
@@ -60,7 +60,7 @@ Human_Enhancers_Cohn:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  DNASwan:
+  SwanDNA:
     input_size: 5
     output_size: 2
     embedding_size: 144
@@ -85,7 +85,7 @@ Demo_Human_Or_Worm:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  DNASwan:
+  SwanDNA:
     input_size: 5
     output_size: 2
     embedding_size: 144
@@ -110,7 +110,7 @@ Demo_Mouse_Enhancers:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  DNASwan:
+  SwanDNA:
     input_size: 5
     output_size: 2
     embedding_size: 144
@@ -135,7 +135,7 @@ Demo_Coding_Inter:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  DNASwan:
+  SwanDNA:
     input_size: 5
     output_size: 2
     embedding_size: 144
@@ -160,7 +160,7 @@ Human_Enhancers_Ensembl:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  DNASwan:
+  SwanDNA:
     input_size: 5
     output_size: 2
     embedding_size: 144
@@ -185,7 +185,7 @@ Human_Regulatory:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  DNASwan:
+  SwanDNA:
     input_size: 5
     output_size: 3
     embedding_size: 144
@@ -210,7 +210,7 @@ Human_Ocr_Ensembl:
     device: "cuda"
     patience: -1
     swa_lrs: -1
-  DNASwan:
+  SwanDNA:
     input_size: 5
     output_size: 2
     embedding_size: 72

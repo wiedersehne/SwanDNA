@@ -6,7 +6,7 @@ from functools import lru_cache
 from datetime import datetime
 from torch.utils.data import DataLoader
 from sklearn.metrics import roc_auc_score
-from models.DNASwan import Classifier
+from models.SwanDNA import Classifier
 from data_utils import vcf_Dataset
 import pytorch_lightning as pl
 from transformers import get_cosine_schedule_with_warmup
@@ -21,9 +21,9 @@ class LightningWrapper(pl.LightningModule):
     def __init__(self, model, cfg, snapshot_path, train_set, val_set, pretrained, loss, file_name):
         super().__init__()
         self.save_hyperparameters(cfg)
-        self.model_config = self.hparams.DNASwan
+        self.model_config = self.hparams.SwanDNA
         self.batch_size = self.hparams.training.batch_size
-        self.length = self.hparams.DNASwan.max_len
+        self.length = self.hparams.SwanDNA.max_len
         self.model = model(**self.model_config)#.apply(self._init_weights)
         self.save_every = self.hparams.training.save_every
         self.snapshot_path = snapshot_path
@@ -168,7 +168,7 @@ class LightningWrapper(pl.LightningModule):
 
 def classify_main(cfg):
     pretrained = cfg.Fine_tuning.training.pretrained
-    length = cfg.Fine_tuning.DNASwan.max_len
+    length = cfg.Fine_tuning.SwanDNA.max_len
 
     loss = nn.BCEWithLogitsLoss()
 
@@ -182,7 +182,7 @@ def classify_main(cfg):
 
     ddp = DDPStrategy(process_group_backend="nccl", find_unused_parameters=True)
     snapshot_path = "test.pt"
-    file_name = "DNASwan_VE_10_16.pt"
+    file_name = "SwanDNA_VE_10_16.pt"
 
     model = LightningWrapper(Classifier, cfg.Fine_tuning, snapshot_path, train_set, val_set, pretrained, loss, file_name)
     summary = ModelSummary(model, max_depth=-1)

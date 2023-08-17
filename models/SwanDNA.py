@@ -124,11 +124,11 @@ class CircularShift(nn.Module):
         return z
 
 
-class DANSwanBlock(nn.Module):
+class SwanDNABlock(nn.Module):
     """
-    A PyTorch module implementing the DANSwanBlock.
+    A PyTorch module implementing the SwanDNABlock.
 
-    This module combines two main steps in the DANSwan layer: circular-shift and column_transform.
+    This module combines two main steps in the SwanDNA layer: circular-shift and column_transform.
     The dropout between too is added.
 
     Args:
@@ -136,7 +136,7 @@ class DANSwanBlock(nn.Module):
         group_size (int): The size of groups to be shifted.
         hidden_size (int): The hidden layer size for the MLP.
         mlp_dropout (float): The dropout probability for the MLP.
-        layer_dropout (float): The dropout probability for the DANSwanBlock.
+        layer_dropout (float): The dropout probability for the SwanDNABlock.
         prenorm (str): The type of normalization for the pre-normalization step.
         norm (str): The type of normalization for the post-normalization step.
     """
@@ -177,9 +177,9 @@ class DANSwanBlock(nn.Module):
         return x
 
 
-class DANSwanEncoder(nn.Module):
+class SwanDNAEncoder(nn.Module):
     """
-    A PyTorch module implementing a DANSwan Encoder as a stack of DANSwan layers.
+    A PyTorch module implementing a SwanDNA Encoder as a stack of SwanDNA layers.
     The number of layers in the stack is determined by the maximum sequence length in the batch.
     The number of layers is fixed for the equal lengths mode.
 
@@ -188,7 +188,7 @@ class DANSwanEncoder(nn.Module):
         group_size (int): The size of groups to be shifted.
         hidden_size (int): The hidden layer size for the MLP.
         mlp_dropout (float): The dropout probability for the MLP.
-        layer_dropout (float): The dropout probability for the DANSwanBlock.
+        layer_dropout (float): The dropout probability for the SwanDNABlock.
         prenorm (str): The type of normalization for the pre-normalization step.
         norm (str): The type of normalization for the post-normalization step.
     """
@@ -206,9 +206,9 @@ class DANSwanEncoder(nn.Module):
         super().__init__()
         self.max_len = max_len
         self.max_n_layers = math.ceil(np.log2(max_len))
-        self.DANSwan_blocks = nn.ModuleList(
+        self.SwanDNA_blocks = nn.ModuleList(
             [
-                DANSwanBlock(
+                SwanDNABlock(
                     embedding_size,
                     group_size,
                     hidden_size,
@@ -225,13 +225,13 @@ class DANSwanEncoder(nn.Module):
         # If var_len, use a variable number of layers
 
         for layer in range(self.max_n_layers):
-            x = self.DANSwan_blocks[layer](x)
+            x = self.SwanDNA_blocks[layer](x)
         return x
 
 
 class Classifier(nn.Module):
     """
-    The DANSwan model. Encoder is a stack of DANSwan blocks. Decoder a global average pooling, followed by a linear layer.
+    The SwanDNA model. Encoder is a stack of SwanDNA blocks. Decoder a global average pooling, followed by a linear layer.
 
     Args:
         input_size (int): The input size of the embedding layer.
@@ -241,7 +241,7 @@ class Classifier(nn.Module):
         group_size (int): The size of groups to be shifted.
         hidden_size (int): The hidden layer size for the MLPs.
         mlp_dropout (float): The dropout probability for the MLPs.
-        layer_dropout (float): The dropout probability for the DANSwanBlock.
+        layer_dropout (float): The dropout probability for the SwanDNABlock.
         prenorm (str): The type of normalization for the pre-normalization step.
         norm (str): The type of normalization for the post-normalization step.
     """
@@ -265,7 +265,7 @@ class Classifier(nn.Module):
                     embedding_size
             ).apply(self._init_weights)
 
-            self.encoder = DANSwanEncoder(
+            self.encoder = SwanDNAEncoder(
                 max_len,
                 embedding_size,
                 group_size,
@@ -276,7 +276,7 @@ class Classifier(nn.Module):
                 norm
             ).apply(self._init_weights)
 
-            self.cm_clf = DANSwanEncoder(
+            self.cm_clf = SwanDNAEncoder(
                 max_len,
                 embedding_size,
                 group_size,
@@ -322,7 +322,7 @@ class Classifier(nn.Module):
 
 class GB_Classifier(nn.Module):
     """
-    The DANSwan model. Encoder is a stack of DANSwan blocks. Decoder a global average pooling, followed by a linear layer.
+    The SwanDNA model. Encoder is a stack of SwanDNA blocks. Decoder a global average pooling, followed by a linear layer.
 
     Args:
         input_size (int): The input size of the embedding layer.
@@ -331,7 +331,7 @@ class GB_Classifier(nn.Module):
         group_size (int): The size of groups to be shifted.
         hidden_size (int): The hidden layer size for the MLPs.
         mlp_dropout (float): The dropout probability for the MLPs.
-        layer_dropout (float): The dropout probability for the DANSwanBlock.
+        layer_dropout (float): The dropout probability for the SwanDNABlock.
         prenorm (str): The type of normalization for the pre-normalization step.
         norm (str): The type of normalization for the post-normalization step.
     """
@@ -357,7 +357,7 @@ class GB_Classifier(nn.Module):
                     self.embedding_size
             ).apply(self._init_weights)
 
-            self.encoder = DANSwanEncoder(
+            self.encoder = SwanDNAEncoder(
                 max_len,
                 self.embedding_size,
                 group_size,
@@ -368,7 +368,7 @@ class GB_Classifier(nn.Module):
                 norm
             )#.apply(self._init_weights)
 
-            self.cm_clf = DANSwanEncoder(
+            self.cm_clf = SwanDNAEncoder(
                 max_len,
                 self.embedding_size,
                 group_size,
@@ -411,7 +411,7 @@ class GB_Classifier(nn.Module):
 
 class Plant_Classifier(nn.Module):
     """
-    The DANSwan model. Encoder is a stack of DANSwan blocks. Decoder a global average pooling, followed by a linear layer.
+    The SwanDNA model. Encoder is a stack of SwanDNA blocks. Decoder a global average pooling, followed by a linear layer.
 
     Args:
         input_size (int): The input size of the embedding layer.
@@ -419,7 +419,7 @@ class Plant_Classifier(nn.Module):
         group_size (int): The size of groups to be shifted.
         hidden_size (int): The hidden layer size for the MLPs.
         mlp_dropout (float): The dropout probability for the MLPs.
-        layer_dropout (float): The dropout probability for the DANSwanBlock.
+        layer_dropout (float): The dropout probability for the SwanDNABlock.
         prenorm (str): The type of normalization for the pre-normalization step.
         norm (str): The type of normalization for the post-normalization step.
     """
@@ -442,7 +442,7 @@ class Plant_Classifier(nn.Module):
                 embedding_size
         ).apply(self._init_weights)
 
-        self.encoder = DANSwanEncoder(
+        self.encoder = SwanDNAEncoder(
             n_layer,
             embedding_size,
             group_size,
@@ -453,7 +453,7 @@ class Plant_Classifier(nn.Module):
             norm
         ).apply(self._init_weights)
 
-        self.cm_clf = DANSwanEncoder(
+        self.cm_clf = SwanDNAEncoder(
             n_layer,
             embedding_size,
             group_size,
