@@ -106,7 +106,7 @@ Demo_Mouse_Enhancers:
     weight_decay: 0.1
     learning_rate: 0.0001
     save_every: 2500
-    n_epochs: 80
+    n_epochs: 300
     device: "cuda"
     patience: -1
     swa_lrs: -1

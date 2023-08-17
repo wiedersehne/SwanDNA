@@ -82,12 +82,12 @@ The optimal hyperparameters for each dataset are fixed in **config_gb.yaml**. Yo
 ### Experimental Results
 | Dataset                  | CNN | Transformer | HyenaDNA | DNASWAN |
 | ------------------------ | ------- | --------------- | ------------ | ------- |
-| Mouse Enhancers          | 69.0    | 80.1            | 84.3         | **95.31** |
-| Coding vs Intergenomic   | 87.6    | 88.8            | 87.6         | **92.85** |
+| Mouse Enhancers          | 69.0    | 80.1            | 84.3         | **** |
+| Coding vs Intergenomic   | 87.6    | 88.8            | 87.6         | **85.95** |
 | Human vs Worm            | 93.0    | 95.6            | 96.5         | **96.65** |
 | Human Enhancers Cohn     | 69.5    | 70.5            | 73.8         | **73.97** |
 | Human Enhancers Ensmbl   | 68.9    | 83.5            | 89.2         | **90.32** |
 | Human Regulatory         | 93.3    | 91.5            | 93.8         | **94.04** |
 | Human Nontata Promoters  | 84.6    | 87.7            | 96.6         | **97.62** |
 | Human OCR Ensembl        | 68.0    | 73.0            | **80.9**     | 77.52   |
-| Average                  | 79.2    | 83.8            | 87.8         | **89.79** |
+| Average                  | 79.2    | 83.8            | 87.8         | **88.62** |

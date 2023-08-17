@@ -137,7 +137,7 @@ class LightningWrapper(pl.LightningModule):
             num_workers=1,
             pin_memory=True,
             shuffle=False,
-            drop_last=True,
+            drop_last=False,
             batch_size=self.batch_size
             )
 
