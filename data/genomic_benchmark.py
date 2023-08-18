@@ -30,17 +30,22 @@ def encode_sequence_varied(d, ds, dt, length):
     Human Regulatory: 802; Human_OCR:593]
     Lastly save them as torch tensors: X, y.
     """
+    print(len(ds))
     sequences = []
     labels = []
     for data in ds:
         gene_to_number = lb.transform(list(data[0]))
-        if len(gene_to_number) < length:
-            gene_to_number = np.pad(gene_to_number, ((0, length-len(gene_to_number)), (0, 0)))
-        sequences.append(gene_to_number)
+        # print(gene_to_number)
+        padded_seq = np.pad(gene_to_number, ((0, length-len(gene_to_number)), (0, 0)))
+        # print(padded_seq)
+        # print(len(gene_to_number))
+        # print(len(padded_seq))
+        sequences.append(padded_seq)
         labels.append(data[1])
 
     X = torch.from_numpy(np.array(sequences)).to(torch.int8)
     y = torch.from_numpy(np.array(labels)).to(torch.float16)
+
     torch.save(X, f"./data/{d}_X_{dt}.pt")
     torch.save(y, f"./data/{d}_y_{dt}.pt")
 

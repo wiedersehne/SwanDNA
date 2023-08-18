@@ -1,0 +1,24 @@
+{
+    "os": "Linux-4.18.0-425.3.1.el8.x86_64-x86_64-with-glibc2.28",
+    "python": "3.9.12",
+    "heartbeatAt": "2023-08-17T09:43:34.530540",
+    "startedAt": "2023-08-17T09:43:33.583466",
+    "docker": null,
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "gpu_count": 1,
+    "cpu_count": 48,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/cluster/home/tonyu/VE_Pretraining/SwanDNA/genomic_classification.py",
+    "codePath": "genomic_classification.py",
+    "git": {
+        "remote": "git@github.com:wiedersehne/DNASWAN.git",
+        "commit": "02334e6436981b6f9f9a98b94c99ed4a9853ed5a"
+    },
+    "email": "wiedersehne@gmail.com",
+    "root": "/cluster/home/tonyu/VE_Pretraining/SwanDNA",
+    "host": "idun-04-07",
+    "username": "tonyu",
+    "executable": "/cluster/home/tonyu/.conda/envs/monica/bin/python3"
+}

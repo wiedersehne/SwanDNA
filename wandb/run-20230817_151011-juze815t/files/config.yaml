@@ -1,0 +1,130 @@
+wandb_version: 1
+
+SwanDNA/coeff:
+  desc: null
+  value: 1.2
+SwanDNA/embedding_size:
+  desc: null
+  value: 144
+SwanDNA/group_size:
+  desc: null
+  value: 16
+SwanDNA/hidden_size:
+  desc: null
+  value: 256
+SwanDNA/input_size:
+  desc: null
+  value: 5
+SwanDNA/layer_dropout:
+  desc: null
+  value: 0
+SwanDNA/max_len:
+  desc: null
+  value: 4776
+SwanDNA/mlp_dropout:
+  desc: null
+  value: 0
+SwanDNA/norm:
+  desc: null
+  value: None
+SwanDNA/output_size:
+  desc: null
+  value: 2
+SwanDNA/prenorm:
+  desc: null
+  value: None
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.13.0
+    framework: huggingface
+    huggingface_version: 4.26.0
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    m:
+    - 1: trainer/global_step
+      6:
+      - 3
+    - 1: val_acc
+      5: 1
+      6:
+      - 1
+    - 1: val_loss
+      5: 1
+      6:
+      - 1
+    - 1: epoch
+      5: 1
+      6:
+      - 1
+    - 1: train_acc
+      5: 1
+      6:
+      - 1
+    - 1: train_loss
+      5: 1
+      6:
+      - 1
+    python_version: 3.9.12
+    start_time: 1692277811.864915
+    t:
+      1:
+      - 1
+      - 2
+      - 3
+      - 9
+      - 11
+      - 41
+      - 49
+      - 55
+      2:
+      - 1
+      - 2
+      - 3
+      - 9
+      - 11
+      - 41
+      - 49
+      - 55
+      3:
+      - 7
+      - 13
+      - 23
+      4: 3.9.12
+      5: 0.13.0
+      6: 4.26.0
+      8:
+      - 5
+training/batch_size:
+  desc: null
+  value: 128
+training/device:
+  desc: null
+  value: cuda
+training/learning_rate:
+  desc: null
+  value: 0.0001
+training/n_cycles:
+  desc: null
+  value: 0.5
+training/n_epochs:
+  desc: null
+  value: 300
+training/n_warmup_steps:
+  desc: null
+  value: 50000
+training/patience:
+  desc: null
+  value: -1
+training/pretrained:
+  desc: null
+  value: true
+training/save_every:
+  desc: null
+  value: 2500
+training/swa_lrs:
+  desc: null
+  value: -1
+training/weight_decay:
+  desc: null
+  value: 0.1

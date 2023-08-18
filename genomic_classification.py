@@ -97,7 +97,7 @@ class LightningWrapper(pl.LightningModule):
             num_workers=1,
             pin_memory=True,
             shuffle=True,
-            drop_last=True,
+            drop_last=False,
             batch_size=self.batch_size
             )
 
@@ -171,6 +171,7 @@ def classify_main(cfg, task):
     train_y = torch.load(f"./data/{task}_y_train.pt")
     test_X = torch.load(f"./data/{task}_X_test.pt")
     test_y = torch.load(f"./data/{task}_y_test.pt")
+    print(train_X.shape)
 
     train_set =  gb_Dataset(train_X, train_y)
     val_set = gb_Dataset(test_X, test_y)
@@ -189,7 +190,7 @@ def classify_main(cfg, task):
     4. init trainer
     """
 
-    wandb_logger = WandbLogger(dir="./wandb/", project="Human_promoter", entity='', name=f'{pretrained_model}_{length}_{pretrained}')
+    wandb_logger = WandbLogger(dir="./wandb/", project="Mouse_Enhancers", entity='', name=f'{pretrained_model}_{length}_{pretrained}')
     checkpoint_callback = ModelCheckpoint(monitor="val_acc", mode="max")
 
     lr_monitor = LearningRateMonitor(logging_interval='step')
@@ -220,4 +221,4 @@ def classify_main(cfg, task):
 if __name__ == "__main__":
     cfg = OmegaConf.load('./config/config_gb.yaml')
     OmegaConf.set_struct(cfg, False)
-    classify_main(cfg, "human_nontata_promoters")
+    classify_main(cfg, "dummy_mouse_enhancers_ensembl")

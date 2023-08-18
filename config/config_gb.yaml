@@ -104,9 +104,9 @@ Demo_Mouse_Enhancers:
     n_warmup_steps: 50000
     n_cycles: 0.5
     weight_decay: 0.1
-    learning_rate: 0.0001
+    learning_rate: 0.0005
     save_every: 2500
-    n_epochs: 300
+    n_epochs: 200
     device: "cuda"
     patience: -1
     swa_lrs: -1
@@ -115,7 +115,7 @@ Demo_Mouse_Enhancers:
     output_size: 2
     embedding_size: 144
     max_len: 4776
-    group_size: 16
+    group_size: 18
     hidden_size: 256
     mlp_dropout: 0
     layer_dropout: 0
@@ -156,7 +156,7 @@ Human_Enhancers_Ensembl:
     weight_decay: 0.1
     learning_rate: 0.0001
     save_every: 2500
-    n_epochs: 300
+    n_epochs: 80
     device: "cuda"
     patience: -1
     swa_lrs: -1
