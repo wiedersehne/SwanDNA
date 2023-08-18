@@ -82,8 +82,8 @@ The optimal hyperparameters for each dataset are fixed in **config_gb.yaml**. Yo
 ### Experimental Results
 | Dataset                  | CNN | Transformer | HyenaDNA | SwanDNA |
 | ------------------------ | ------- | --------------- | ------------ | ------- |
-| Mouse Enhancers          | 69.0    | 80.1            | 84.3         | **** |
-| Coding vs Intergenomic   | 87.6    | 88.8            | 87.6         | **85.95** |
+| Mouse Enhancers          | 69.0    | 80.1            | 84.3         | **85.95** |
+| Coding vs Intergenomic   | 87.6    | 88.8            | 87.6         | **92.85** |
 | Human vs Worm            | 93.0    | 95.6            | 96.5         | **96.65** |
 | Human Enhancers Cohn     | 69.5    | 70.5            | 73.8         | **73.97** |
 | Human Enhancers Ensmbl   | 68.9    | 83.5            | 89.2         | **90.32** |
