@@ -72,6 +72,7 @@ class LightningWrapper(pl.LightningModule):
         output = self.model(seq).squeeze()
         preds = output.argmax(dim=-1)
         train_loss = self.loss(output, label.to(torch.int64))
+        self.train_acc.update(preds, label.int())
         return {"loss":train_loss, "preds":preds, "labels":label}
 
     def validation_step(self, batch, batch_idx):
@@ -79,17 +80,22 @@ class LightningWrapper(pl.LightningModule):
         output = self.model(seq).squeeze()
         preds = output.argmax(dim=-1)
         val_loss = self.loss(output, label.to(torch.int64))
+        self.val_acc.update(preds, label.int())
         return {"loss":val_loss, "preds":preds, "labels":label}
 
-    def training_step_end(self, outputs):
-        acc = self.train_acc(outputs["preds"], outputs["labels"])
+    def training_epoch_end(self, outputs):
+        train_loss = torch.stack([x["loss"] for x in outputs]).mean()
+        acc = self.train_acc.compute().mean()
+        self.train_acc.reset()
         self.log('train_acc', acc, sync_dist=True)
-        self.log('train_loss', outputs["loss"], sync_dist=True)
+        self.log('train_loss', train_loss, sync_dist=True)
 
-    def validation_step_end(self, outputs):
-        acc = self.val_acc(outputs["preds"], outputs["labels"])
+    def validation_epoch_end(self, outputs):
+        val_loss = torch.stack([x["loss"] for x in outputs]).mean()
+        acc = self.val_acc.compute().mean()
+        self.val_acc.reset()
         self.log("val_acc", acc, sync_dist=True)
-        self.log('val_loss', outputs["loss"], sync_dist=True)
+        self.log('val_loss', val_loss, sync_dist=True)
 
     def train_dataloader(self):
         return DataLoader(
