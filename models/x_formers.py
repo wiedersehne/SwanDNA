@@ -155,7 +155,7 @@ class Plant_FormerClassifier(nn.Module):
 
         self.encoder = XFormer(name, True, dim_in, dim_out, depth=layers, heads=heads, seq_len=max_seq_len)
         self.Net2 = XFormer(name, False, dim_out, clf_dim, depth=layers, heads=heads, seq_len=max_seq_len)
-        self.linear = nn.Linear(clf_dim, output_size).half()
+        self.linear = nn.Linear(clf_dim, output_size)
 
     def forward(self, seq):
         en = self.encoder(seq)
