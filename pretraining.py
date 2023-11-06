@@ -1,5 +1,4 @@
 from random import random as rand
-from utils import *
 import torch.nn as nn
 import pandas as pd
 from torch.utils.data import Dataset, DataLoader
