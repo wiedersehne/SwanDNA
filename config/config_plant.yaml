@@ -1,0 +1,29 @@
+Pretrain:
+  pre_seq_len: 1000
+  pre_num: 30000
+  batch_size: 64
+  learning_rate: 0.001
+  weight_decay: 0.0003
+training:
+  pretrained: True
+  pre_load: 19
+  batch_size: 64
+  learning_rate: 0.001
+  weight_decay: 0.0003
+  warm: 0.1
+SwanDNA:
+  input_size: 4
+  embedding_size: 44
+  n_layer: 10
+  group_size: 4
+  hidden_size: 64
+  mlp_dropout: 0.02
+  layer_dropout: 0.02
+  prenorm: "None"
+  norm: "None"
+xformer:
+  layers: 2
+  heads: 4
+  dim_in: 4
+  dim_out: 64
+  clf_dim: 64
