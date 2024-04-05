@@ -80,14 +80,14 @@ Then, specify the task in the main function. The following example shows how to 
 The optimal hyperparameters for each dataset are fixed in **config_gb.yaml**. You can also refer to the supplementary document.
 
 ### Experimental Results
-| Dataset                  | CNN | Transformer | HyenaDNA | SwanDNA |
-| ------------------------ | ------- | --------------- | ------------ | ------- |
-| Mouse Enhancers          | 69.0    | 80.1            | 84.3         | **85.95** |
-| Coding vs Intergenomic   | 87.6    | 88.8            | 87.6         | **92.85** |
-| Human vs Worm            | 93.0    | 95.6            | 96.5         | **96.65** |
-| Human Enhancers Cohn     | 69.5    | 70.5            | 73.8         | **73.97** |
-| Human Enhancers Ensmbl   | 68.9    | 83.5            | 89.2         | **90.32** |
-| Human Regulatory         | 93.3    | 91.5            | 93.8         | **94.04** |
-| Human Nontata Promoters  | 84.6    | 87.7            | 96.6         | **97.62** |
-| Human OCR Ensembl        | 68.0    | 73.0            | **80.9**     | 77.52   |
-| Average                  | 79.2    | 83.8            | 87.8         | **88.62** |
+| Dataset                  | CNN | Transformer | HyenaDNA | cdilDNA | SwanDNA | 
+| ------------------------ | ------- | --------------- | ------------ | ------- | ------- |
+| Mouse Enhancers          | 69.0    | 80.1            | 84.3         | 81.40| **85.95**  |
+| Coding vs Intergenomic   | 87.6    | 88.8            | 87.6         |86.81| **92.85** |
+| Human vs Worm            | 93.0    | 95.6            | 96.5         |96.46| **96.65** |
+| Human Enhancers Cohn     | 69.5    | 70.5            | 73.8         |70.45| **73.97** |
+| Human Enhancers Ensmbl   | 68.9    | 83.5            | 89.2         |82.99| **90.32** |
+| Human Regulatory         | 93.3    | 91.5            | 93.8         |91.72| **94.04** |
+| Human Nontata Promoters  | 84.6    | 87.7            | 96.6         |97.42| **97.62** |
+| Human OCR Ensembl        | 68.0    | 73.0            | **80.9**     |75.00| 77.52   |
+| Average                  | 79.2    | 83.8            | 87.8         |85.28| **88.62** |
