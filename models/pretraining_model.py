@@ -1,12 +1,12 @@
-from DNASWAN import DNASwanEncoder
+from SwanDNA import SwanDNAEncoder
 import torch.nn as nn
 import math
 import numpy as np
 
 class Model4Pretrain(nn.Module):
     """
-    DNASwan Model for Pretrain : Masked LM
-    With one DNASwan encoder and one DNASwan decoder.
+    SwanDNA Model for Pretrain : Masked LM
+    With one SwanDNA encoder and one SwanDNA decoder.
     """
     def __init__(self, input_size, max_len, embedding_size, group_size, hidden_size, mlp_dropout, layer_dropout, prenorm, norm):
         super().__init__()
@@ -16,7 +16,7 @@ class Model4Pretrain(nn.Module):
                     input_size,
                     self.embedding_size
             )
-        self.encoder = DNASwanEncoder(
+        self.encoder = SwanDNAEncoder(
                 max_len,
                 self.embedding_size,
                 group_size,
@@ -26,7 +26,7 @@ class Model4Pretrain(nn.Module):
                 prenorm,
                 norm
             )
-        self.decoder = DNASwanEncoder(
+        self.decoder = SwanDNAEncoder(
                 max_len,
                 self.embedding_size,
                 group_size,
