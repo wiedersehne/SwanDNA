@@ -53,9 +53,9 @@ class DNASequenceDataset(Dataset):
         seq2 = self.transform(sequence)
         return seq1, seq2
 
-class SimCLRModel(pl.LightningModule):
+class CLModel(pl.LightningModule):
     def __init__(self, config, train_set, val_set):
-        super(SimCLRModel, self).__init__()
+        super(CLModel, self).__init__()
         self.save_hyperparameters(config.Pretraining)
         print(self.hparams)
         training_config = config.Pretraining.training
@@ -195,7 +195,7 @@ def training(cfg):
     val_set = DNASequenceDataset(genes_val, dna_transform)
 
     #"2. create model"
-    model = SimCLRModel(cfg, train_set, val_set)
+    model = CLModel(cfg, train_set, val_set)
 
     #"3. logging and checkpoints"
 
@@ -232,7 +232,7 @@ def training(cfg):
     trainer.fit(model)
 
 if __name__ == "__main__":
-    cfg = OmegaConf.load('./config/config_simclr.yaml')
+    cfg = OmegaConf.load('./config/config_CL.yaml')
     OmegaConf.set_struct(cfg, False)
     training(cfg)
 
